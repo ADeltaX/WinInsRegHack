@@ -36,6 +36,12 @@ namespace ProxyRegistryEditor
         bool isProxyOpened = false;
         int Port = 6767;
         int Prog = 0;
+        string WPFlight;
+        string StartString;
+        string KeysToAdd;
+        string KeysToDelete;
+        string EndingString;
+
         private void Proxy_Btn_Click(object sender, EventArgs e)
         {
             if (Prog ==1)
@@ -78,8 +84,7 @@ namespace ProxyRegistryEditor
 
         private void StartProxy()
         {
-
-            
+           
             Fiddler.FiddlerApplication.SetAppDisplayName("Proxy Registry Editor");
             Fiddler.FiddlerApplication.OnNotification += delegate(object sender, NotificationEventArgs oNEA) {
                 if (Console_RTB.InvokeRequired)
@@ -122,8 +127,15 @@ namespace ProxyRegistryEditor
                     oS.oResponse.headers.SetStatus(200, "Ok");
                     oS.oResponse["Content-Type"] = "application/xml; charset=utf-8";
                     oS.oResponse["Cache-Control"] = "private, max-age=0";
-                    oS.utilSetResponseBody("WPFlights.xml");
+                    StartString = WPFlightsInit_TB.Text;
+                    EndingString = EndingString_TB.Text;
+                    KeysToAdd = KeysToAdd_TB.Text;
+                    KeysToDelete = KeysToDelete_TB.Text;
+
+                    WPFlight = StartString + "<KeysToAdd>" + KeysToAdd + "</KeysToAdd>" + "<KeysToDelete>" + KeysToDelete + "</KeysToDelete>" + EndingString;
+                    oS.utilSetResponseBody(WPFlight);
                     FiddlerApplication.Log.LogFormat("Sending custom Flighting Response");
+                    MessageBox.Show(WPFlight);
                 }
 
 
@@ -256,24 +268,38 @@ namespace ProxyRegistryEditor
             Info_LB.ForeColor = Color.DimGray;
         }
 
+        private void CustRegHacks_LB_Click(object sender, EventArgs e)
+        {
+            SelectedMenuLabel();
+            CustRegHacks_LB.ForeColor = Color.White;
+            CustRegHacks_Panel.Show();
+            RegistryHacks_Panel.Hide();
+            InfoProxy_Panel.Hide();
+            SelectedLabel_LB.Location = new Point(340, SelectedLabel_LB.Location.Y);
+            SelectedLabel_LB.Size = new Size(200, 3);
+        }
         private void RegHacks_LB_Click(object sender, EventArgs e)
         {
             SelectedMenuLabel();
             RegHacks_LB.ForeColor = Color.White;
             RegistryHacks_Panel.Show();
+            CustRegHacks_Panel.Hide();
             InfoProxy_Panel.Hide();
             SelectedLabel_LB.Location = new Point(160, SelectedLabel_LB.Location.Y);
             SelectedLabel_LB.Size = new Size(128, 3);
         }
+
         private void InfoProxy_LB_Click(object sender, EventArgs e)
         {
             SelectedMenuLabel();
             InfoProxy_LB.ForeColor = Color.White;
             InfoProxy_Panel.Show();
             RegistryHacks_Panel.Hide();
+            CustRegHacks_Panel.Hide();
             SelectedLabel_LB.Location = new Point(25, SelectedLabel_LB.Location.Y);
             SelectedLabel_LB.Size = new Size(93, 3);
         }
+        
 
         private void MTPFolder_CB_CheckedChanged(object sender, EventArgs e)
         {
@@ -283,5 +309,59 @@ namespace ProxyRegistryEditor
             }
             else { MTPFolder_TB.Enabled = false; }
         }
+
+        private void ApplyHacks_Btn_Click(object sender, EventArgs e)
+        {
+            KeysToAdd_TB.Clear();
+            KeysToDelete_TB.Clear();
+            if (MTPFolder_CB.Checked)
+            {
+                KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\MTP</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DataStore</Name><Value>" + MTPFolder_TB.Text + "</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+            }
+            if (PfD_CB.Checked)
+            {
+                if (PfDEnable_RB.Checked)
+                {
+                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>System\\Platform\\DeviceTargetingInfo</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DevOSPreviewEnable</Name><Value>1</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                }
+                else
+                {
+                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>System\\Platform\\DeviceTargetingInfo</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DevOSPreviewEnable</Name><Value>0</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                }
+            }
+            if (Aboutmoz_CB.Checked)
+            {
+                if (AboutmozEnable_RB.Checked)
+                {
+                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Internet explorer\\Abouturls</KeyName><Subkeys/><Values><RegistryKeyValue><Name>moz</Name><Value>res://mshtml.dll/about.moz</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                }
+                else
+                {
+                    KeysToDelete_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Internet explorer\\Abouturls</KeyName><Subkeys/><Values><RegistryKeyValue><Name>moz</Name><Value>res://mshtml.dll/about.moz</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                }
+            }
+            if (Neverlock_CB.Checked)
+            {
+                if (NeverlockEnable_RB.Checked)
+                {
+                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Lock</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DisableNever</Name><Value>1</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                }
+                else
+                {
+                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Lock</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DisableNever</Name><Value>0</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                }
+            }
+            if (MaxSystemUIVolume_LB.Checked)
+            {
+                KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Volume</KeyName><Subkeys/><Values><RegistryKeyValue><Name>MaxSystemUIVolume</Name><Value>" + MSUV_Nup.Value + "</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+            }
+            if (MaxInCallUIVolume_CB.Checked)
+            {
+                KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Volume</KeyName><Subkeys/><Values><RegistryKeyValue><Name>MaxInCallUIVolume</Name><Value>" + MICUV_Nup.Value + "</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+            }
+
+        }
+
+
     }
 }

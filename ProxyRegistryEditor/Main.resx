@@ -117,4 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="WPFlightsInit_TB.Text" xml:space="preserve">
+    <value>&lt;ArrayOfUpdateProgramProvisioning xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;UpdateProgramProvisioning&gt;
+    &lt;ProgramName&gt;Windows 10 Technical Preview for phones&lt;/ProgramName&gt;
+    &lt;Trains&gt;
+      &lt;UpdateProgramTrainProvisioning&gt;
+        &lt;Description&gt;This will edit your Registry keys. Don't continue if you don't know what are you doing&lt;/Description&gt;
+        &lt;Eula&gt;
+          &amp;lt;Paragraph FontSize="57.5" LineHeight="57.5" FontFamily="Segoe WP Semilight" FontWeight="Light" CharacterSpacing="-10"&amp;gt;confirm&amp;lt;/Paragraph&amp;gt;&amp;#xD;
+          &amp;lt;Paragraph&amp;gt;This is a experimental registry editing via proxy.&amp;lt;LineBreak /&amp;gt;&amp;lt;LineBreak /&amp;gt;&amp;amp;#8226; If you don't know what are you doing, close this app.&amp;lt;LineBreak /&amp;gt;&amp;amp;#8226; Editing Registry it's a risk.&amp;lt;LineBreak /&amp;gt;&amp;amp;#8226; In some circumstances, you may not be able to place calls (including calls for emergency services).&amp;lt;LineBreak /&amp;gt;&amp;amp;#8226; It may damage your device, causing it to stop working permanently.&amp;lt;LineBreak /&amp;gt;&amp;amp;#8226; You may experience increased data charges.&amp;lt;LineBreak /&amp;gt;&amp;amp;#8226; You might experience crashes, security vulnerabilities, or data loss. &amp;lt;LineBreak /&amp;gt;&amp;lt;/Paragraph&amp;gt;
+        &lt;/Eula&gt;
+        &lt;FlightId&gt;1&lt;/FlightId&gt;</value>
+  </data>
+  <data name="EndingString_TB.Text" xml:space="preserve">
+    <value>&lt;TrainName&gt;Modify Registry keys&lt;/TrainName&gt;
+        &lt;FlightUid&gt;B9642D35-1EFA-450F-9923-3A4F03A51210&lt;/FlightUid&gt;
+      &lt;/UpdateProgramTrainProvisioning&gt;
+    &lt;/Trains&gt;
+  &lt;/UpdateProgramProvisioning&gt;
+&lt;/ArrayOfUpdateProgramProvisioning&gt;</value>
+  </data>
 </root>

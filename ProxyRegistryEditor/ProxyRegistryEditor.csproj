@@ -50,12 +50,6 @@
     <StartupObject>ProxyRegistryEditor.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BCMakeCert">
-      <HintPath>..\..\..\..\..\Desktop\FiddlerCoreAPI\BCMakeCert.dll</HintPath>
-    </Reference>
-    <Reference Include="CertMaker">
-      <HintPath>..\..\..\..\..\Desktop\FiddlerCoreAPI\CertMaker.dll</HintPath>
-    </Reference>
     <Reference Include="FiddlerCore">
       <HintPath>..\..\..\..\..\Desktop\FiddlerCoreAPI\FiddlerCore.dll</HintPath>
     </Reference>
