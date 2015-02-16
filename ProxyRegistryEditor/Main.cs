@@ -241,14 +241,47 @@ namespace ProxyRegistryEditor
         }
 
         #endregion
-        private void RegHacks_LB_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void SelectedMenuLabel()
+        {
+            InfoProxy_LB.ForeColor = Color.DimGray;
+            RegHacks_LB.ForeColor = Color.DimGray;
+            CustRegHacks_LB.ForeColor = Color.DimGray;
+            Settings_LB.ForeColor = Color.DimGray;
+            Info_LB.ForeColor = Color.DimGray;
+        }
+
+        private void RegHacks_LB_Click(object sender, EventArgs e)
+        {
+            SelectedMenuLabel();
+            RegHacks_LB.ForeColor = Color.White;
+            RegistryHacks_Panel.Show();
+            InfoProxy_Panel.Hide();
+            SelectedLabel_LB.Location = new Point(160, SelectedLabel_LB.Location.Y);
+            SelectedLabel_LB.Size = new Size(128, 3);
+        }
+        private void InfoProxy_LB_Click(object sender, EventArgs e)
+        {
+            SelectedMenuLabel();
+            InfoProxy_LB.ForeColor = Color.White;
+            InfoProxy_Panel.Show();
+            RegistryHacks_Panel.Hide();
+            SelectedLabel_LB.Location = new Point(25, SelectedLabel_LB.Location.Y);
+            SelectedLabel_LB.Size = new Size(93, 3);
+        }
+
+        private void MTPFolder_CB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MTPFolder_CB.Checked)
+            {
+                MTPFolder_TB.Enabled = true;
+            }
+            else { MTPFolder_TB.Enabled = false; }
         }
     }
 }

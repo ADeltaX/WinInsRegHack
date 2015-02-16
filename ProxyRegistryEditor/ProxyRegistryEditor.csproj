@@ -77,7 +77,6 @@
     <Compile Include="ConfigLoader.Designer.cs">
       <DependentUpon>ConfigLoader.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsoleService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
