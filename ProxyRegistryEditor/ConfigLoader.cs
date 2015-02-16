@@ -19,7 +19,11 @@ namespace ProxyRegistryEditor
 
         private void ConfigLoader_Load(object sender, EventArgs e)
         {
-
+            Main frm = new Main();
+            frm.Show();
+            Application.DoEvents();
+            this.Opacity = 0;
+            this.Hide();
         }
     }
 }

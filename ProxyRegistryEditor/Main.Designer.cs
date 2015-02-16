@@ -45,6 +45,8 @@
             this.Proxy_TxtBox = new System.Windows.Forms.TextBox();
             this.Console_RTB = new System.Windows.Forms.RichTextBox();
             this.Console_LB = new System.Windows.Forms.Label();
+            this.InfoProxy_Panel = new System.Windows.Forms.Panel();
+            this.InfoProxy_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Welcome_LB
@@ -105,6 +107,7 @@
             this.RegHacks_LB.Size = new System.Drawing.Size(139, 21);
             this.RegHacks_LB.TabIndex = 4;
             this.RegHacks_LB.Text = "REGISTRY HACKS";
+            this.RegHacks_LB.Click += new System.EventHandler(this.RegHacks_LB_Click);
             // 
             // CustRegHacks_LB
             // 
@@ -151,7 +154,7 @@
             // 
             this.LocalIP_LB.AutoSize = true;
             this.LocalIP_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LocalIP_LB.Location = new System.Drawing.Point(52, 154);
+            this.LocalIP_LB.Location = new System.Drawing.Point(42, 42);
             this.LocalIP_LB.Name = "LocalIP_LB";
             this.LocalIP_LB.Size = new System.Drawing.Size(87, 28);
             this.LocalIP_LB.TabIndex = 6;
@@ -163,7 +166,7 @@
             this.LocalIP_Txtbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LocalIP_Txtbox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LocalIP_Txtbox.ForeColor = System.Drawing.Color.White;
-            this.LocalIP_Txtbox.Location = new System.Drawing.Point(145, 152);
+            this.LocalIP_Txtbox.Location = new System.Drawing.Point(135, 40);
             this.LocalIP_Txtbox.Margin = new System.Windows.Forms.Padding(2);
             this.LocalIP_Txtbox.Name = "LocalIP_Txtbox";
             this.LocalIP_Txtbox.ReadOnly = true;
@@ -174,7 +177,7 @@
             // 
             this.Port_LB.AutoSize = true;
             this.Port_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Port_LB.Location = new System.Drawing.Point(52, 220);
+            this.Port_LB.Location = new System.Drawing.Point(42, 108);
             this.Port_LB.Name = "Port_LB";
             this.Port_LB.Size = new System.Drawing.Size(52, 28);
             this.Port_LB.TabIndex = 6;
@@ -186,7 +189,7 @@
             this.Port_Txtbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Port_Txtbox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Port_Txtbox.ForeColor = System.Drawing.Color.White;
-            this.Port_Txtbox.Location = new System.Drawing.Point(145, 218);
+            this.Port_Txtbox.Location = new System.Drawing.Point(135, 106);
             this.Port_Txtbox.Margin = new System.Windows.Forms.Padding(2);
             this.Port_Txtbox.Name = "Port_Txtbox";
             this.Port_Txtbox.ReadOnly = true;
@@ -197,7 +200,7 @@
             // 
             this.isSrvOn_LB.AutoSize = true;
             this.isSrvOn_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isSrvOn_LB.Location = new System.Drawing.Point(52, 288);
+            this.isSrvOn_LB.Location = new System.Drawing.Point(42, 176);
             this.isSrvOn_LB.Name = "isSrvOn_LB";
             this.isSrvOn_LB.Size = new System.Drawing.Size(65, 28);
             this.isSrvOn_LB.TabIndex = 6;
@@ -209,7 +212,7 @@
             this.Proxy_TxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Proxy_TxtBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Proxy_TxtBox.ForeColor = System.Drawing.Color.White;
-            this.Proxy_TxtBox.Location = new System.Drawing.Point(145, 286);
+            this.Proxy_TxtBox.Location = new System.Drawing.Point(135, 174);
             this.Proxy_TxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.Proxy_TxtBox.Name = "Proxy_TxtBox";
             this.Proxy_TxtBox.ReadOnly = true;
@@ -224,7 +227,7 @@
             this.Console_RTB.BackColor = System.Drawing.Color.Black;
             this.Console_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Console_RTB.ForeColor = System.Drawing.Color.White;
-            this.Console_RTB.Location = new System.Drawing.Point(57, 386);
+            this.Console_RTB.Location = new System.Drawing.Point(47, 274);
             this.Console_RTB.Name = "Console_RTB";
             this.Console_RTB.ReadOnly = true;
             this.Console_RTB.Size = new System.Drawing.Size(673, 121);
@@ -235,11 +238,29 @@
             // 
             this.Console_LB.AutoSize = true;
             this.Console_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Console_LB.Location = new System.Drawing.Point(53, 355);
+            this.Console_LB.Location = new System.Drawing.Point(43, 243);
             this.Console_LB.Name = "Console_LB";
             this.Console_LB.Size = new System.Drawing.Size(86, 28);
             this.Console_LB.TabIndex = 6;
             this.Console_LB.Text = "Console:";
+            // 
+            // InfoProxy_Panel
+            // 
+            this.InfoProxy_Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoProxy_Panel.Controls.Add(this.Console_RTB);
+            this.InfoProxy_Panel.Controls.Add(this.Proxy_TxtBox);
+            this.InfoProxy_Panel.Controls.Add(this.LocalIP_LB);
+            this.InfoProxy_Panel.Controls.Add(this.Port_Txtbox);
+            this.InfoProxy_Panel.Controls.Add(this.Port_LB);
+            this.InfoProxy_Panel.Controls.Add(this.LocalIP_Txtbox);
+            this.InfoProxy_Panel.Controls.Add(this.isSrvOn_LB);
+            this.InfoProxy_Panel.Controls.Add(this.Console_LB);
+            this.InfoProxy_Panel.Location = new System.Drawing.Point(11, 117);
+            this.InfoProxy_Panel.Name = "InfoProxy_Panel";
+            this.InfoProxy_Panel.Size = new System.Drawing.Size(761, 432);
+            this.InfoProxy_Panel.TabIndex = 9;
             // 
             // Main
             // 
@@ -247,14 +268,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.Console_RTB);
-            this.Controls.Add(this.Proxy_TxtBox);
-            this.Controls.Add(this.Port_Txtbox);
-            this.Controls.Add(this.LocalIP_Txtbox);
-            this.Controls.Add(this.Console_LB);
-            this.Controls.Add(this.isSrvOn_LB);
-            this.Controls.Add(this.Port_LB);
-            this.Controls.Add(this.LocalIP_LB);
             this.Controls.Add(this.SelectedLabel_LB);
             this.Controls.Add(this.Info_LB);
             this.Controls.Add(this.Settings_LB);
@@ -264,11 +277,15 @@
             this.Controls.Add(this.SrvProxy_LB);
             this.Controls.Add(this.Proxy_Btn);
             this.Controls.Add(this.Welcome_LB);
+            this.Controls.Add(this.InfoProxy_Panel);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Menu | Server Proxy: OFF";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.InfoProxy_Panel.ResumeLayout(false);
+            this.InfoProxy_Panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,6 +310,7 @@
         private System.Windows.Forms.TextBox Proxy_TxtBox;
         private System.Windows.Forms.RichTextBox Console_RTB;
         private System.Windows.Forms.Label Console_LB;
+        private System.Windows.Forms.Panel InfoProxy_Panel;
     }
 }
 

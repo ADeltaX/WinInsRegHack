@@ -9,6 +9,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fiddler;
+using System.Threading;
+using System.Reflection;
 
 namespace ProxyRegistryEditor
 {
@@ -20,8 +23,8 @@ namespace ProxyRegistryEditor
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            WriteConsole("Normal TEST", (int)WarningType.Normal);
-            WriteConsole("Warning TEST", (int)WarningType.Important);
+            //WriteConsole("Normal TEST", (int)WarningType.Normal);
+            //WriteConsole("Warning TEST", (int)WarningType.Important);
 
             this.MinimumSize = new Size(800, 600);
             LocalIP_Txtbox.Text = GetLocalIP();
@@ -32,20 +35,25 @@ namespace ProxyRegistryEditor
 
         bool isProxyOpened = false;
         int Port = 6767;
-
+        int Prog = 0;
         private void Proxy_Btn_Click(object sender, EventArgs e)
         {
-            if (isProxyOpened == false)
+            if (Prog ==1)
             {
-                StartProxy();
+                Restart();
+            }else{
+                if (isProxyOpened == false)
+                {
+                    StartProxy();
 
-            } 
-            else 
-            {
-
-                StopProxy();
-
+                }
+                else
+                {
+                    Prog += 1;
+                    StopProxy();
+                }
             }
+            
             
         }
 
@@ -67,8 +75,78 @@ namespace ProxyRegistryEditor
         #endregion
 
         #region Proxy
+
         private void StartProxy()
         {
+
+            
+            Fiddler.FiddlerApplication.SetAppDisplayName("Proxy Registry Editor");
+            Fiddler.FiddlerApplication.OnNotification += delegate(object sender, NotificationEventArgs oNEA) {
+                if (Console_RTB.InvokeRequired)
+                {
+                    Console_RTB.Invoke((MethodInvoker)delegate()
+                    {
+                        WriteConsole(oNEA.NotifyString, 0); 
+                    });
+                }
+                else
+                {
+                    WriteConsole(oNEA.NotifyString, 0); 
+                }
+
+            };
+
+            Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender, LogEventArgs oLEA) {
+                if (Console_RTB.InvokeRequired)
+                {
+                    Console_RTB.Invoke((MethodInvoker)delegate()
+                    {
+                        WriteConsole(oLEA.LogString, 1);
+                    });
+                }
+                else
+                {
+                    WriteConsole(oLEA.LogString, 1);
+                }
+
+                 
+            };
+
+            Fiddler.FiddlerApplication.BeforeRequest += delegate(Fiddler.Session oS)
+                
+            {
+                oS.bBufferResponse = false;
+                if (oS.fullUrl.StartsWith("https://wpflights.trafficmanager.net/RestUpdateProvisioningService.svc/UpdateChoices?"))
+                {
+                    oS.utilCreateResponseAndBypassServer();
+                    oS.oResponse.headers.SetStatus(200, "Ok");
+                    oS.oResponse["Content-Type"] = "application/xml; charset=utf-8";
+                    oS.oResponse["Cache-Control"] = "private, max-age=0";
+                    oS.utilSetResponseBody("WPFlights.xml");
+                    FiddlerApplication.Log.LogFormat("Sending custom Flighting Response");
+                }
+
+
+            };
+
+            Fiddler.CONFIG.IgnoreServerCertErrors = true;
+            FiddlerApplication.Prefs.SetBoolPref("fiddler.network.streaming.abortifclientaborts", true);
+            FiddlerCoreStartupFlags oFCSF = FiddlerCoreStartupFlags.DecryptSSL | FiddlerCoreStartupFlags.AllowRemoteClients | FiddlerCoreStartupFlags.ChainToUpstreamGateway | FiddlerCoreStartupFlags.OptimizeThreadPool;
+            try
+            {
+                Fiddler.FiddlerApplication.Startup(Port, oFCSF);
+            }
+            catch (Exception e)
+            {
+                WriteConsole(e.Message, 1);
+            }
+            
+            WriteConsole(String.Format("Starting {0} ({1})", Fiddler.FiddlerApplication.GetVersionString(), "NoSAZ"), 0);
+            FiddlerApplication.Log.LogFormat("Created endpoint listening on port {0}", Port);
+            FiddlerApplication.Log.LogFormat("Starting with settings: [{0}]", oFCSF);
+            FiddlerApplication.Log.LogFormat("Gateway: {0}", CONFIG.UpstreamGateway.ToString());
+
+
             this.Text = "Main Menu | Server Proxy: ON";
             SrvProxy_LB.Text = "Server Proxy: ON";
             SrvProxy_LB.ForeColor = Color.LimeGreen;
@@ -76,14 +154,52 @@ namespace ProxyRegistryEditor
             Proxy_TxtBox.ForeColor = Color.LimeGreen;
             Proxy_TxtBox.Text = "ON";
             isProxyOpened = true;
+
         }
 
         private void StopProxy()
         {
+            FiddlerApplication.Log.LogFormat("Shutting down. You need to restart the application before restart the proxy", Port);
+
+            Fiddler.FiddlerApplication.OnNotification -= delegate(object sender, NotificationEventArgs oNEA)
+            {
+                if (Console_RTB.InvokeRequired)
+                {
+                    Console_RTB.Invoke((MethodInvoker)delegate()
+                    {
+                        WriteConsole(oNEA.NotifyString, 0);
+                    });
+                }
+                else
+                {
+                    WriteConsole(oNEA.NotifyString, 0);
+                }
+            };
+
+            Fiddler.FiddlerApplication.Log.OnLogString -= delegate(object sender, LogEventArgs oLEA)
+            {
+                if (Console_RTB.InvokeRequired)
+                {
+                    Console_RTB.Invoke((MethodInvoker)delegate()
+                    {
+                        WriteConsole(oLEA.LogString, 1);
+                    });
+                }
+                else
+                {
+                    WriteConsole(oLEA.LogString, 1);
+                }
+            };
+
+            FiddlerApplication.Shutdown();
+            
+            Thread.Sleep(100);
+
+
             this.Text = "Main Menu | Server Proxy: OFF";
             SrvProxy_LB.Text = "Server Proxy: OFF";
             SrvProxy_LB.ForeColor = Color.Yellow;
-            Proxy_Btn.Text = "Start Proxy";
+            Proxy_Btn.Text = "Restart";
             Proxy_TxtBox.ForeColor = Color.White;
             Proxy_TxtBox.Text = "OFF";
             isProxyOpened = false;
@@ -93,25 +209,46 @@ namespace ProxyRegistryEditor
         #region ConsoleService
         public enum WarningType
         {
-            Normal = 0,
-            Important = 1
+            LOG = 0,
+            STRING = 1
         }
 
         public void WriteConsole(string Text, int WarnType)
         {
-            if (WarnType == (int)WarningType.Normal)
-            {
-                Console_RTB.SelectionColor = Color.White;
-                Console_RTB.AppendText("[" + DateTime.Now + "]" + "[OK] " + Text);
-                Console_RTB.AppendText(Environment.NewLine);
-            } else if (WarnType == (int)WarningType.Important)
 
-            {
-                Console_RTB.SelectionColor = Color.Yellow;
-                Console_RTB.AppendText("[" + DateTime.Now + "]" + "[WARNING] " + Text);
-                Console_RTB.AppendText(Environment.NewLine);
+                if (WarnType == (int)WarningType.LOG)
+                {
+                    Console_RTB.SelectionColor = Color.White;
+                    Console_RTB.AppendText("[" + DateTime.Now + "]" + "[LOG] " + Text);
+                    Console_RTB.AppendText(Environment.NewLine);
+                }
+                else if (WarnType == (int)WarningType.STRING)
+                {
+                    Console_RTB.SelectionColor = Color.Yellow;
+                    Console_RTB.AppendText("[" + DateTime.Now + "]" + "[INFO] " + Text);
+                    Console_RTB.AppendText(Environment.NewLine);
+                }
             }
-        }
+        
         #endregion
+
+        #region Restart
+
+        public void Restart()
+        {
+            Application.Restart();
+
+        }
+
+        #endregion
+        private void RegHacks_LB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
