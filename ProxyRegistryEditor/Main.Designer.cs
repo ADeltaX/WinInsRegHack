@@ -43,7 +43,7 @@
             this.Port_Txtbox = new System.Windows.Forms.TextBox();
             this.isSrvOn_LB = new System.Windows.Forms.Label();
             this.Proxy_TxtBox = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Console_RTB = new System.Windows.Forms.RichTextBox();
             this.Console_LB = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -216,20 +216,20 @@
             this.Proxy_TxtBox.Size = new System.Drawing.Size(245, 34);
             this.Proxy_TxtBox.TabIndex = 7;
             // 
-            // richTextBox1
+            // Console_RTB
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Console_RTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BackColor = System.Drawing.Color.Black;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(57, 386);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(673, 121);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
+            this.Console_RTB.BackColor = System.Drawing.Color.Black;
+            this.Console_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Console_RTB.ForeColor = System.Drawing.Color.White;
+            this.Console_RTB.Location = new System.Drawing.Point(57, 386);
+            this.Console_RTB.Name = "Console_RTB";
+            this.Console_RTB.ReadOnly = true;
+            this.Console_RTB.Size = new System.Drawing.Size(673, 121);
+            this.Console_RTB.TabIndex = 8;
+            this.Console_RTB.Text = "";
             // 
             // Console_LB
             // 
@@ -247,7 +247,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Console_RTB);
             this.Controls.Add(this.Proxy_TxtBox);
             this.Controls.Add(this.Port_Txtbox);
             this.Controls.Add(this.LocalIP_Txtbox);
@@ -291,7 +291,7 @@
         private System.Windows.Forms.TextBox Port_Txtbox;
         private System.Windows.Forms.Label isSrvOn_LB;
         private System.Windows.Forms.TextBox Proxy_TxtBox;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Console_RTB;
         private System.Windows.Forms.Label Console_LB;
     }
 }

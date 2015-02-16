@@ -20,6 +20,9 @@ namespace ProxyRegistryEditor
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            WriteConsole("Normal TEST", (int)WarningType.Normal);
+            WriteConsole("Warning TEST", (int)WarningType.Important);
+
             this.MinimumSize = new Size(800, 600);
             LocalIP_Txtbox.Text = GetLocalIP();
             Port_Txtbox.Text = Convert.ToString(Port);
@@ -87,5 +90,28 @@ namespace ProxyRegistryEditor
         }
         #endregion
 
+        #region ConsoleService
+        public enum WarningType
+        {
+            Normal = 0,
+            Important = 1
+        }
+
+        public void WriteConsole(string Text, int WarnType)
+        {
+            if (WarnType == (int)WarningType.Normal)
+            {
+                Console_RTB.SelectionColor = Color.White;
+                Console_RTB.AppendText("[" + DateTime.Now + "]" + "[OK] " + Text);
+                Console_RTB.AppendText(Environment.NewLine);
+            } else if (WarnType == (int)WarningType.Important)
+
+            {
+                Console_RTB.SelectionColor = Color.Yellow;
+                Console_RTB.AppendText("[" + DateTime.Now + "]" + "[WARNING] " + Text);
+                Console_RTB.AppendText(Environment.NewLine);
+            }
+        }
+        #endregion
     }
 }
