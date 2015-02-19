@@ -23,14 +23,14 @@ namespace ProxyRegistryEditor
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            //WriteConsole("Normal TEST", (int)WarningType.Normal);
-            //WriteConsole("Warning TEST", (int)WarningType.Important);
-
+            this.Text = "Main Menu | " + Version + " | Port: " + Port + " | Server Proxy: OFF";
             this.MinimumSize = new Size(800, 600);
             LocalIP_Txtbox.Text = GetLocalIP();
             Port_Txtbox.Text = Convert.ToString(Port);
             Proxy_TxtBox.ForeColor = Color.White;
             Proxy_TxtBox.Text = "OFF";
+            CreatedBy_LB.Text += "ADeltaX";
+            Version_LB.Text += Version;
         }
 
         bool isProxyOpened = false;
@@ -41,6 +41,7 @@ namespace ProxyRegistryEditor
         string KeysToAdd;
         string KeysToDelete;
         string EndingString;
+        string Version = "Beta 0.7";
 
         private void Proxy_Btn_Click(object sender, EventArgs e)
         {
@@ -135,7 +136,7 @@ namespace ProxyRegistryEditor
                     WPFlight = StartString + "<KeysToAdd>" + KeysToAdd + "</KeysToAdd>" + "<KeysToDelete>" + KeysToDelete + "</KeysToDelete>" + EndingString;
                     oS.utilSetResponseBody(WPFlight);
                     FiddlerApplication.Log.LogFormat("Sending custom Flighting Response");
-                    MessageBox.Show(WPFlight);
+                   // MessageBox.Show(WPFlight);
                 }
 
 
@@ -151,6 +152,7 @@ namespace ProxyRegistryEditor
             catch (Exception e)
             {
                 WriteConsole(e.Message, 1);
+                return;
             }
             
             WriteConsole(String.Format("Starting {0} ({1})", Fiddler.FiddlerApplication.GetVersionString(), "NoSAZ"), 0);
@@ -159,7 +161,7 @@ namespace ProxyRegistryEditor
             FiddlerApplication.Log.LogFormat("Gateway: {0}", CONFIG.UpstreamGateway.ToString());
 
 
-            this.Text = "Main Menu | Server Proxy: ON";
+            this.Text = "Main Menu | " + Version + " | Port: " + Port + " | Server Proxy: ON";
             SrvProxy_LB.Text = "Server Proxy: ON";
             SrvProxy_LB.ForeColor = Color.LimeGreen;
             Proxy_Btn.Text = "Stop Proxy";
@@ -208,9 +210,9 @@ namespace ProxyRegistryEditor
             Thread.Sleep(100);
 
 
-            this.Text = "Main Menu | Server Proxy: OFF";
+            this.Text = "Main Menu | " + Version + " | Port: " + Port + " | Server Proxy: OFF";
             SrvProxy_LB.Text = "Server Proxy: OFF";
-            SrvProxy_LB.ForeColor = Color.Yellow;
+            SrvProxy_LB.ForeColor = Color.White;
             Proxy_Btn.Text = "Restart";
             Proxy_TxtBox.ForeColor = Color.White;
             Proxy_TxtBox.Text = "OFF";
@@ -259,6 +261,7 @@ namespace ProxyRegistryEditor
             Application.Exit();
         }
 
+        #region GUISettings
         private void SelectedMenuLabel()
         {
             InfoProxy_LB.ForeColor = Color.DimGray;
@@ -267,14 +270,41 @@ namespace ProxyRegistryEditor
             Settings_LB.ForeColor = Color.DimGray;
             Info_LB.ForeColor = Color.DimGray;
         }
+        private void Info_LB_Click(object sender, EventArgs e)
+        {
+            SelectedMenuLabel();
+            Info_LB.ForeColor = Color.White;
+            Info_Panel.Show();
+            Settings_Panel.Hide();
+            CustRegHacks_Panel.Hide();
+            RegistryHacks_Panel.Hide();
+            InfoProxy_Panel.Hide();
+            SelectedLabel_LB.Location = new Point(709, SelectedLabel_LB.Location.Y);
+            SelectedLabel_LB.Size = new Size(39, 3);
+        }
+        private void Settings_LB_Click(object sender, EventArgs e)
+
+        {
+            SelectedMenuLabel();
+            Settings_LB.ForeColor = Color.White;
+            Settings_Panel.Show();
+            Info_Panel.Hide();
+            CustRegHacks_Panel.Hide();
+            RegistryHacks_Panel.Hide();
+            InfoProxy_Panel.Hide();
+            SelectedLabel_LB.Location = new Point(587, SelectedLabel_LB.Location.Y);
+            SelectedLabel_LB.Size = new Size(75, 3);
+        }
 
         private void CustRegHacks_LB_Click(object sender, EventArgs e)
         {
             SelectedMenuLabel();
             CustRegHacks_LB.ForeColor = Color.White;
             CustRegHacks_Panel.Show();
+            Info_Panel.Hide();
             RegistryHacks_Panel.Hide();
             InfoProxy_Panel.Hide();
+            Settings_Panel.Hide();
             SelectedLabel_LB.Location = new Point(340, SelectedLabel_LB.Location.Y);
             SelectedLabel_LB.Size = new Size(200, 3);
         }
@@ -283,8 +313,10 @@ namespace ProxyRegistryEditor
             SelectedMenuLabel();
             RegHacks_LB.ForeColor = Color.White;
             RegistryHacks_Panel.Show();
+            Info_Panel.Hide();
             CustRegHacks_Panel.Hide();
             InfoProxy_Panel.Hide();
+            Settings_Panel.Hide();
             SelectedLabel_LB.Location = new Point(160, SelectedLabel_LB.Location.Y);
             SelectedLabel_LB.Size = new Size(128, 3);
         }
@@ -294,12 +326,15 @@ namespace ProxyRegistryEditor
             SelectedMenuLabel();
             InfoProxy_LB.ForeColor = Color.White;
             InfoProxy_Panel.Show();
+            Info_Panel.Hide();
             RegistryHacks_Panel.Hide();
             CustRegHacks_Panel.Hide();
+            Settings_Panel.Hide();
             SelectedLabel_LB.Location = new Point(25, SelectedLabel_LB.Location.Y);
             SelectedLabel_LB.Size = new Size(93, 3);
         }
-        
+
+        #endregion
 
         private void MTPFolder_CB_CheckedChanged(object sender, EventArgs e)
         {
@@ -316,50 +351,217 @@ namespace ProxyRegistryEditor
             KeysToDelete_TB.Clear();
             if (MTPFolder_CB.Checked)
             {
-                KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\MTP</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DataStore</Name><Value>" + MTPFolder_TB.Text + "</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\MTP", "DataStore", MTPFolder_TB.Text, 1);
             }
             if (PfD_CB.Checked)
             {
                 if (PfDEnable_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>System\\Platform\\DeviceTargetingInfo</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DevOSPreviewEnable</Name><Value>1</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                    KeysToAdd_TB.Text += RegistryStringCreator("System\\Platform\\DeviceTargetingInfo", "DevOSPreviewEnable", "1", 4);
                 }
                 else
                 {
-                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>System\\Platform\\DeviceTargetingInfo</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DevOSPreviewEnable</Name><Value>0</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                    KeysToAdd_TB.Text += RegistryStringCreator("System\\Platform\\DeviceTargetingInfo", "DevOSPreviewEnable", "0", 4);
                 }
             }
             if (Aboutmoz_CB.Checked)
             {
                 if (AboutmozEnable_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Internet explorer\\Abouturls</KeyName><Subkeys/><Values><RegistryKeyValue><Name>moz</Name><Value>res://mshtml.dll/about.moz</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Internet Explorer\\Abouturls", "moz", "res://mshtml.dll/about.moz", 1);
                 }
                 else
                 {
-                    KeysToDelete_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Internet explorer\\Abouturls</KeyName><Subkeys/><Values><RegistryKeyValue><Name>moz</Name><Value>res://mshtml.dll/about.moz</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                    KeysToDelete_TB.Text += RegistryStringCreator("Software\\Microsoft\\Internet Explorer\\Abouturls", "moz", "res://mshtml.dll/about.moz", 1);
                 }
             }
             if (Neverlock_CB.Checked)
             {
                 if (NeverlockEnable_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Lock</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DisableNever</Name><Value>1</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Lock", "DisableNever", "1", 4);
                 }
                 else
                 {
-                    KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Lock</KeyName><Subkeys/><Values><RegistryKeyValue><Name>DisableNever</Name><Value>0</Value><ValueType>1</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Lock", "DisableNever", "0", 4);          
                 }
             }
             if (MaxSystemUIVolume_LB.Checked)
             {
-                KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Volume</KeyName><Subkeys/><Values><RegistryKeyValue><Name>MaxSystemUIVolume</Name><Value>" + MSUV_Nup.Value + "</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Volume", "MaxSystemUIVolume", Convert.ToString(MICUV_Nup.Value), 4);  
             }
             if (MaxInCallUIVolume_CB.Checked)
             {
-                KeysToAdd_TB.Text += "<RegistryKey><KeyName>Software\\Microsoft\\Settings\\Volume</KeyName><Subkeys/><Values><RegistryKeyValue><Name>MaxInCallUIVolume</Name><Value>" + MICUV_Nup.Value + "</Value><ValueType>4</ValueType></RegistryKeyValue></Values></RegistryKey>";
+                KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Volume", "MaxInCallUIVolume", Convert.ToString(MICUV_Nup.Value), 4);  
             }
+            if (UserPreferenceWidth_CB.Checked)
+            {
+                if (SmallWidth_RB.Checked)
+                {
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "59", 4);
+                }
+                else if (MediumWidth_RB.Checked)
+                {
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "64", 4);
+                }
+                else if (LargeWidth_RB.Checked)
+                {
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "75", 4);
+                }
+            }
+        }
 
+        private void AddKey_Btn_Click(object sender, EventArgs e)
+        {
+           
+
+            if (RegistryKeyPath_TB.Text == "" | RegistryKeyValue_TB.Text == "" | RegistryKeyName_TB.Text == "")
+            {
+                MessageBox.Show("Please fill all text box");
+            }
+            else
+            {
+                if (KeysToAddCustHacks_RTB.Text != "")
+                {
+                    KeysToAddCustHacks_RTB.Text += Environment.NewLine;
+                }
+                KeysToAddCustHacks_RTB.Text += RegistryStringCreator(RegistryKeyPath_TB.Text, RegistryKeyName_TB.Text, RegistryKeyValue_TB.Text, ValueTypeSet());
+            }
+        }
+
+        private void RemoveKey_Btn_Click(object sender, EventArgs e)
+        {
+
+            if (RegistryKeyPath_TB.Text == "" | RegistryKeyName_TB.Text == "")
+            {
+                MessageBox.Show("Please fill all text box");
+            }
+            else
+            {
+                if (KeysToDeleteCustHacks_RTB.Text != "")
+                {
+                    KeysToDeleteCustHacks_RTB.Text += Environment.NewLine;
+                }
+                KeysToDeleteCustHacks_RTB.Text += RegistryStringCreator(RegistryKeyPath_TB.Text, RegistryKeyName_TB.Text, RegistryKeyValue_TB.Text, ValueTypeSet());
+            }
+        }
+
+        public int ValueTypeSet()
+        {
+            int ValueTypeInt = 0;
+
+            if (StringType_RB.Checked)
+            {
+                ValueTypeInt = 1;
+
+            }
+            else if (VariableStringType_RB.Checked)
+            {
+                ValueTypeInt = 2;
+            }
+            else if (BinaryType_RB.Checked)
+            {
+                ValueTypeInt = 3;
+            }
+            else if (IntegerType_RB.Checked)
+            {
+                ValueTypeInt = 4;
+            }
+            else if (IntegerBigEndianType_RB.Checked)
+            {
+                ValueTypeInt = 5;
+            }
+            else if (SymbolicLinkType_RB.Checked)
+            {
+                ValueTypeInt = 6;
+            }
+            else if (MultiStringType_RB.Checked)
+            {
+                ValueTypeInt = 7;
+            }
+            else if (ResourceListType_RB.Checked)
+            {
+                ValueTypeInt = 8;
+            }
+            else if (HardwareResourceListType_RB.Checked)
+            {
+                ValueTypeInt = 9;
+            }
+            else if (ResourceRequirementType_RB.Checked)
+            {
+                ValueTypeInt = 10;
+            }
+            else if (LongType_RB.Checked)
+            {
+                ValueTypeInt = 11;
+            }
+            return ValueTypeInt;
+        }
+
+        public string RegistryStringCreator(string KeyPath, string KeyName, string KeyValue, int KeyType)
+        {
+            
+            string Tostringreturn = "";
+            Tostringreturn = "<RegistryKey>" + Environment.NewLine +
+                "    <KeyName>" + KeyPath + "</KeyName>" + Environment.NewLine + 
+                "    <Subkeys/>" + Environment.NewLine + "    <Values>" + Environment.NewLine + 
+                "        <RegistryKeyValue>" + Environment.NewLine + "            <Name>" +
+                KeyName + "</Name>" + Environment.NewLine + "            <Value>"
+                + KeyValue + "</Value>" + Environment.NewLine + "            <ValueType>" + 
+                KeyType + "</ValueType>" + Environment.NewLine + "        </RegistryKeyValue>" + Environment.NewLine +
+                "    </Values>" + Environment.NewLine + "</RegistryKey>";
+
+            return Tostringreturn;
+        }
+
+        private void ApplyCustHacks_Btn_Click(object sender, EventArgs e)
+        {
+            KeysToAdd_TB.Text = KeysToAddCustHacks_RTB.Text;
+            KeysToDelete_TB.Text = KeysToDeleteCustHacks_RTB.Text;
+        }
+
+        private void ApplySettings_Btn_Click(object sender, EventArgs e)
+        {
+            if (PortSettings_TB.Text == "") {
+
+                MessageBox.Show("Write the port");
+
+            }
+            else
+            {
+                Port = Convert.ToInt32(PortSettings_TB.Text);
+                Port_Txtbox.Text = Convert.ToString(Port);
+                MessageBox.Show(String.Format("Port changed to {0}!", Port));
+                this.Text = "Main Menu | " + Version + " | Port: " + Port + " | Server Proxy: OFF";
+            }
+            
+        }
+
+        private void PortSettings_TB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+              if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back) 
+              {
+                   e.Handled = false; 
+              }
+              else
+              {
+              e.Handled = true;
+              }
+        }
+
+        private void License_LLB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.gnu.org/copyleft/gpl.html");
+        }
+
+        private void XDA_LLB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://forum.xda-developers.com/member.php?u=6421461");
+        }
+
+        private void Website_LLB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.adeltax.com");
         }
 
 

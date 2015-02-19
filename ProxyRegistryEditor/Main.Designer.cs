@@ -48,6 +48,16 @@
             this.Console_LB = new System.Windows.Forms.Label();
             this.InfoProxy_Panel = new System.Windows.Forms.Panel();
             this.RegistryHacks_Panel = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SmallWidth_RB = new System.Windows.Forms.RadioButton();
+            this.LargeWidth_RB = new System.Windows.Forms.RadioButton();
+            this.MediumWidth_RB = new System.Windows.Forms.RadioButton();
+            this.MICUV_Nup = new System.Windows.Forms.NumericUpDown();
+            this.MSUV_Nup = new System.Windows.Forms.NumericUpDown();
+            this.UserPreferenceWidth_CB = new System.Windows.Forms.CheckBox();
+            this.MaxInCallUIVolume_CB = new System.Windows.Forms.CheckBox();
+            this.MaxSystemUIVolume_LB = new System.Windows.Forms.CheckBox();
+            this.ApplyHacks_Btn = new System.Windows.Forms.Button();
             this.PfD_GB = new System.Windows.Forms.GroupBox();
             this.PfDDisable_RB = new System.Windows.Forms.RadioButton();
             this.PfDEnable_RB = new System.Windows.Forms.RadioButton();
@@ -66,38 +76,61 @@
             this.EndingString_TB = new System.Windows.Forms.TextBox();
             this.KeysToAdd_TB = new System.Windows.Forms.TextBox();
             this.KeysToDelete_TB = new System.Windows.Forms.TextBox();
-            this.ApplyHacks_Btn = new System.Windows.Forms.Button();
-            this.MaxSystemUIVolume_LB = new System.Windows.Forms.CheckBox();
-            this.MSUV_Nup = new System.Windows.Forms.NumericUpDown();
-            this.MaxInCallUIVolume_CB = new System.Windows.Forms.CheckBox();
-            this.MICUV_Nup = new System.Windows.Forms.NumericUpDown();
             this.CustRegHacks_Panel = new System.Windows.Forms.Panel();
-            this.RegistryKeyPath_LB = new System.Windows.Forms.Label();
-            this.RegistryKeyPath_TB = new System.Windows.Forms.TextBox();
-            this.RegistryKeyName_LB = new System.Windows.Forms.Label();
-            this.RegistryKeyName_TB = new System.Windows.Forms.TextBox();
-            this.RegistryKeyValue_LB = new System.Windows.Forms.Label();
-            this.RegistryKeyValue_TB = new System.Windows.Forms.TextBox();
-            this.RegistryKeyType_LB = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.ApplyCustHacks_Btn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.VariableStringType_RB = new System.Windows.Forms.RadioButton();
+            this.SymbolicLinkType_RB = new System.Windows.Forms.RadioButton();
+            this.ResourceListType_RB = new System.Windows.Forms.RadioButton();
+            this.IntegerBigEndianType_RB = new System.Windows.Forms.RadioButton();
+            this.MultiStringType_RB = new System.Windows.Forms.RadioButton();
+            this.HardwareResourceListType_RB = new System.Windows.Forms.RadioButton();
+            this.ResourceRequirementType_RB = new System.Windows.Forms.RadioButton();
+            this.LongType_RB = new System.Windows.Forms.RadioButton();
+            this.IntegerType_RB = new System.Windows.Forms.RadioButton();
+            this.KeysToDeleteCustHacks_RTB = new System.Windows.Forms.RichTextBox();
+            this.KeysToAddCustHacks_RTB = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RemoveKey_Btn = new System.Windows.Forms.Button();
+            this.AddKey_Btn = new System.Windows.Forms.Button();
+            this.ApplyCustHacks_Btn = new System.Windows.Forms.Button();
+            this.BinaryType_RB = new System.Windows.Forms.RadioButton();
+            this.StringType_RB = new System.Windows.Forms.RadioButton();
+            this.RegistryKeyValue_TB = new System.Windows.Forms.TextBox();
+            this.RegistryKeyName_TB = new System.Windows.Forms.TextBox();
+            this.RegistryKeyPath_TB = new System.Windows.Forms.TextBox();
+            this.RegistryKeyType_LB = new System.Windows.Forms.Label();
+            this.RegistryKeyValue_LB = new System.Windows.Forms.Label();
+            this.RegistryKeyName_LB = new System.Windows.Forms.Label();
+            this.RegistryKeyPath_LB = new System.Windows.Forms.Label();
+            this.Settings_Panel = new System.Windows.Forms.Panel();
+            this.ApplySettings_Btn = new System.Windows.Forms.Button();
+            this.PortSettings_TB = new System.Windows.Forms.TextBox();
+            this.SettingsSettings_LB = new System.Windows.Forms.Label();
+            this.PortSettings_LB = new System.Windows.Forms.Label();
+            this.Info_Panel = new System.Windows.Forms.Panel();
+            this.License_LLB = new System.Windows.Forms.LinkLabel();
+            this.XDA_LLB = new System.Windows.Forms.LinkLabel();
+            this.Website_LLB = new System.Windows.Forms.LinkLabel();
+            this.Thanks_RTB = new System.Windows.Forms.RichTextBox();
+            this.Thanks_LB = new System.Windows.Forms.Label();
+            this.Version_LB = new System.Windows.Forms.Label();
+            this.License_LB = new System.Windows.Forms.Label();
+            this.XDAUser_LB = new System.Windows.Forms.Label();
+            this.Website_LB = new System.Windows.Forms.Label();
+            this.CreatedBy_LB = new System.Windows.Forms.Label();
+            this.ADX_PB = new System.Windows.Forms.PictureBox();
             this.InfoProxy_Panel.SuspendLayout();
             this.RegistryHacks_Panel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MICUV_Nup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MSUV_Nup)).BeginInit();
             this.PfD_GB.SuspendLayout();
             this.Neverlock_GB.SuspendLayout();
             this.Aboutmoz_GB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MSUV_Nup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MICUV_Nup)).BeginInit();
             this.CustRegHacks_Panel.SuspendLayout();
+            this.Settings_Panel.SuspendLayout();
+            this.Info_Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ADX_PB)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcome_LB
@@ -130,7 +163,7 @@
             this.SrvProxy_LB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SrvProxy_LB.AutoSize = true;
             this.SrvProxy_LB.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SrvProxy_LB.ForeColor = System.Drawing.Color.Yellow;
+            this.SrvProxy_LB.ForeColor = System.Drawing.Color.White;
             this.SrvProxy_LB.Location = new System.Drawing.Point(526, 33);
             this.SrvProxy_LB.Name = "SrvProxy_LB";
             this.SrvProxy_LB.Size = new System.Drawing.Size(117, 19);
@@ -183,6 +216,7 @@
             this.Settings_LB.Size = new System.Drawing.Size(84, 21);
             this.Settings_LB.TabIndex = 4;
             this.Settings_LB.Text = "SETTINGS";
+            this.Settings_LB.Click += new System.EventHandler(this.Settings_LB_Click);
             // 
             // Info_LB
             // 
@@ -194,6 +228,7 @@
             this.Info_LB.Size = new System.Drawing.Size(48, 21);
             this.Info_LB.TabIndex = 4;
             this.Info_LB.Text = "INFO";
+            this.Info_LB.Click += new System.EventHandler(this.Info_LB_Click);
             // 
             // SelectedLabel_LB
             // 
@@ -320,8 +355,10 @@
             this.RegistryHacks_Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegistryHacks_Panel.Controls.Add(this.groupBox1);
             this.RegistryHacks_Panel.Controls.Add(this.MICUV_Nup);
             this.RegistryHacks_Panel.Controls.Add(this.MSUV_Nup);
+            this.RegistryHacks_Panel.Controls.Add(this.UserPreferenceWidth_CB);
             this.RegistryHacks_Panel.Controls.Add(this.MaxInCallUIVolume_CB);
             this.RegistryHacks_Panel.Controls.Add(this.MaxSystemUIVolume_LB);
             this.RegistryHacks_Panel.Controls.Add(this.ApplyHacks_Btn);
@@ -338,6 +375,130 @@
             this.RegistryHacks_Panel.Size = new System.Drawing.Size(761, 432);
             this.RegistryHacks_Panel.TabIndex = 10;
             this.RegistryHacks_Panel.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.SmallWidth_RB);
+            this.groupBox1.Controls.Add(this.LargeWidth_RB);
+            this.groupBox1.Controls.Add(this.MediumWidth_RB);
+            this.groupBox1.Location = new System.Drawing.Point(256, 297);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(249, 83);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            // 
+            // SmallWidth_RB
+            // 
+            this.SmallWidth_RB.AutoSize = true;
+            this.SmallWidth_RB.Checked = true;
+            this.SmallWidth_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SmallWidth_RB.Location = new System.Drawing.Point(6, 8);
+            this.SmallWidth_RB.Name = "SmallWidth_RB";
+            this.SmallWidth_RB.Size = new System.Drawing.Size(117, 32);
+            this.SmallWidth_RB.TabIndex = 10;
+            this.SmallWidth_RB.TabStop = true;
+            this.SmallWidth_RB.Text = "59 (Small)";
+            this.SmallWidth_RB.UseVisualStyleBackColor = true;
+            // 
+            // LargeWidth_RB
+            // 
+            this.LargeWidth_RB.AutoSize = true;
+            this.LargeWidth_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LargeWidth_RB.Location = new System.Drawing.Point(129, 9);
+            this.LargeWidth_RB.Name = "LargeWidth_RB";
+            this.LargeWidth_RB.Size = new System.Drawing.Size(117, 32);
+            this.LargeWidth_RB.TabIndex = 10;
+            this.LargeWidth_RB.Text = "75 (Large)";
+            this.LargeWidth_RB.UseVisualStyleBackColor = true;
+            // 
+            // MediumWidth_RB
+            // 
+            this.MediumWidth_RB.AutoSize = true;
+            this.MediumWidth_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MediumWidth_RB.Location = new System.Drawing.Point(53, 44);
+            this.MediumWidth_RB.Name = "MediumWidth_RB";
+            this.MediumWidth_RB.Size = new System.Drawing.Size(142, 32);
+            this.MediumWidth_RB.TabIndex = 10;
+            this.MediumWidth_RB.Text = "64 (Medium)";
+            this.MediumWidth_RB.UseVisualStyleBackColor = true;
+            // 
+            // MICUV_Nup
+            // 
+            this.MICUV_Nup.BackColor = System.Drawing.Color.Black;
+            this.MICUV_Nup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MICUV_Nup.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MICUV_Nup.ForeColor = System.Drawing.Color.White;
+            this.MICUV_Nup.Location = new System.Drawing.Point(256, 257);
+            this.MICUV_Nup.Name = "MICUV_Nup";
+            this.MICUV_Nup.Size = new System.Drawing.Size(200, 34);
+            this.MICUV_Nup.TabIndex = 15;
+            this.MICUV_Nup.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // MSUV_Nup
+            // 
+            this.MSUV_Nup.BackColor = System.Drawing.Color.Black;
+            this.MSUV_Nup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MSUV_Nup.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MSUV_Nup.ForeColor = System.Drawing.Color.White;
+            this.MSUV_Nup.Location = new System.Drawing.Point(256, 211);
+            this.MSUV_Nup.Name = "MSUV_Nup";
+            this.MSUV_Nup.Size = new System.Drawing.Size(200, 34);
+            this.MSUV_Nup.TabIndex = 15;
+            this.MSUV_Nup.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // UserPreferenceWidth_CB
+            // 
+            this.UserPreferenceWidth_CB.AutoSize = true;
+            this.UserPreferenceWidth_CB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserPreferenceWidth_CB.Location = new System.Drawing.Point(17, 306);
+            this.UserPreferenceWidth_CB.Name = "UserPreferenceWidth_CB";
+            this.UserPreferenceWidth_CB.Size = new System.Drawing.Size(215, 32);
+            this.UserPreferenceWidth_CB.TabIndex = 14;
+            this.UserPreferenceWidth_CB.Text = "UserPreferenceWidth";
+            this.UserPreferenceWidth_CB.UseVisualStyleBackColor = true;
+            // 
+            // MaxInCallUIVolume_CB
+            // 
+            this.MaxInCallUIVolume_CB.AutoSize = true;
+            this.MaxInCallUIVolume_CB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaxInCallUIVolume_CB.Location = new System.Drawing.Point(17, 258);
+            this.MaxInCallUIVolume_CB.Name = "MaxInCallUIVolume_CB";
+            this.MaxInCallUIVolume_CB.Size = new System.Drawing.Size(201, 32);
+            this.MaxInCallUIVolume_CB.TabIndex = 14;
+            this.MaxInCallUIVolume_CB.Text = "MaxInCallUIVolume";
+            this.MaxInCallUIVolume_CB.UseVisualStyleBackColor = true;
+            // 
+            // MaxSystemUIVolume_LB
+            // 
+            this.MaxSystemUIVolume_LB.AutoSize = true;
+            this.MaxSystemUIVolume_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaxSystemUIVolume_LB.Location = new System.Drawing.Point(17, 212);
+            this.MaxSystemUIVolume_LB.Name = "MaxSystemUIVolume_LB";
+            this.MaxSystemUIVolume_LB.Size = new System.Drawing.Size(215, 32);
+            this.MaxSystemUIVolume_LB.TabIndex = 14;
+            this.MaxSystemUIVolume_LB.Text = "MaxSystemUIVolume";
+            this.MaxSystemUIVolume_LB.UseVisualStyleBackColor = true;
+            // 
+            // ApplyHacks_Btn
+            // 
+            this.ApplyHacks_Btn.BackColor = System.Drawing.Color.Black;
+            this.ApplyHacks_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApplyHacks_Btn.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplyHacks_Btn.Location = new System.Drawing.Point(646, 386);
+            this.ApplyHacks_Btn.Name = "ApplyHacks_Btn";
+            this.ApplyHacks_Btn.Size = new System.Drawing.Size(112, 43);
+            this.ApplyHacks_Btn.TabIndex = 13;
+            this.ApplyHacks_Btn.Text = "Apply";
+            this.ApplyHacks_Btn.UseVisualStyleBackColor = false;
+            this.ApplyHacks_Btn.Click += new System.EventHandler(this.ApplyHacks_Btn_Click);
             // 
             // PfD_GB
             // 
@@ -508,6 +669,7 @@
             this.WPFlightsInit_TB.Size = new System.Drawing.Size(143, 21);
             this.WPFlightsInit_TB.TabIndex = 11;
             this.WPFlightsInit_TB.Text = resources.GetString("WPFlightsInit_TB.Text");
+            this.WPFlightsInit_TB.Visible = false;
             // 
             // EndingString_TB
             // 
@@ -517,6 +679,7 @@
             this.EndingString_TB.Size = new System.Drawing.Size(120, 21);
             this.EndingString_TB.TabIndex = 11;
             this.EndingString_TB.Text = resources.GetString("EndingString_TB.Text");
+            this.EndingString_TB.Visible = false;
             // 
             // KeysToAdd_TB
             // 
@@ -525,6 +688,7 @@
             this.KeysToAdd_TB.Name = "KeysToAdd_TB";
             this.KeysToAdd_TB.Size = new System.Drawing.Size(144, 21);
             this.KeysToAdd_TB.TabIndex = 11;
+            this.KeysToAdd_TB.Visible = false;
             // 
             // KeysToDelete_TB
             // 
@@ -533,87 +697,28 @@
             this.KeysToDelete_TB.Name = "KeysToDelete_TB";
             this.KeysToDelete_TB.Size = new System.Drawing.Size(120, 21);
             this.KeysToDelete_TB.TabIndex = 11;
-            // 
-            // ApplyHacks_Btn
-            // 
-            this.ApplyHacks_Btn.BackColor = System.Drawing.Color.Black;
-            this.ApplyHacks_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ApplyHacks_Btn.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplyHacks_Btn.Location = new System.Drawing.Point(646, 386);
-            this.ApplyHacks_Btn.Name = "ApplyHacks_Btn";
-            this.ApplyHacks_Btn.Size = new System.Drawing.Size(112, 43);
-            this.ApplyHacks_Btn.TabIndex = 13;
-            this.ApplyHacks_Btn.Text = "Apply";
-            this.ApplyHacks_Btn.UseVisualStyleBackColor = false;
-            this.ApplyHacks_Btn.Click += new System.EventHandler(this.ApplyHacks_Btn_Click);
-            // 
-            // MaxSystemUIVolume_LB
-            // 
-            this.MaxSystemUIVolume_LB.AutoSize = true;
-            this.MaxSystemUIVolume_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxSystemUIVolume_LB.Location = new System.Drawing.Point(17, 212);
-            this.MaxSystemUIVolume_LB.Name = "MaxSystemUIVolume_LB";
-            this.MaxSystemUIVolume_LB.Size = new System.Drawing.Size(215, 32);
-            this.MaxSystemUIVolume_LB.TabIndex = 14;
-            this.MaxSystemUIVolume_LB.Text = "MaxSystemUIVolume";
-            this.MaxSystemUIVolume_LB.UseVisualStyleBackColor = true;
-            // 
-            // MSUV_Nup
-            // 
-            this.MSUV_Nup.BackColor = System.Drawing.Color.Black;
-            this.MSUV_Nup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MSUV_Nup.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MSUV_Nup.ForeColor = System.Drawing.Color.White;
-            this.MSUV_Nup.Location = new System.Drawing.Point(256, 211);
-            this.MSUV_Nup.Name = "MSUV_Nup";
-            this.MSUV_Nup.Size = new System.Drawing.Size(200, 34);
-            this.MSUV_Nup.TabIndex = 15;
-            this.MSUV_Nup.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            // 
-            // MaxInCallUIVolume_CB
-            // 
-            this.MaxInCallUIVolume_CB.AutoSize = true;
-            this.MaxInCallUIVolume_CB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxInCallUIVolume_CB.Location = new System.Drawing.Point(17, 258);
-            this.MaxInCallUIVolume_CB.Name = "MaxInCallUIVolume_CB";
-            this.MaxInCallUIVolume_CB.Size = new System.Drawing.Size(201, 32);
-            this.MaxInCallUIVolume_CB.TabIndex = 14;
-            this.MaxInCallUIVolume_CB.Text = "MaxInCallUIVolume";
-            this.MaxInCallUIVolume_CB.UseVisualStyleBackColor = true;
-            // 
-            // MICUV_Nup
-            // 
-            this.MICUV_Nup.BackColor = System.Drawing.Color.Black;
-            this.MICUV_Nup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MICUV_Nup.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MICUV_Nup.ForeColor = System.Drawing.Color.White;
-            this.MICUV_Nup.Location = new System.Drawing.Point(256, 257);
-            this.MICUV_Nup.Name = "MICUV_Nup";
-            this.MICUV_Nup.Size = new System.Drawing.Size(200, 34);
-            this.MICUV_Nup.TabIndex = 15;
-            this.MICUV_Nup.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.KeysToDelete_TB.Visible = false;
             // 
             // CustRegHacks_Panel
             // 
+            this.CustRegHacks_Panel.Controls.Add(this.VariableStringType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.SymbolicLinkType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.ResourceListType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.IntegerBigEndianType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.MultiStringType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.HardwareResourceListType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.ResourceRequirementType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.LongType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.IntegerType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.KeysToDeleteCustHacks_RTB);
+            this.CustRegHacks_Panel.Controls.Add(this.KeysToAddCustHacks_RTB);
             this.CustRegHacks_Panel.Controls.Add(this.label2);
             this.CustRegHacks_Panel.Controls.Add(this.label1);
-            this.CustRegHacks_Panel.Controls.Add(this.button2);
-            this.CustRegHacks_Panel.Controls.Add(this.button1);
+            this.CustRegHacks_Panel.Controls.Add(this.RemoveKey_Btn);
+            this.CustRegHacks_Panel.Controls.Add(this.AddKey_Btn);
             this.CustRegHacks_Panel.Controls.Add(this.ApplyCustHacks_Btn);
-            this.CustRegHacks_Panel.Controls.Add(this.textBox2);
-            this.CustRegHacks_Panel.Controls.Add(this.textBox1);
-            this.CustRegHacks_Panel.Controls.Add(this.radioButton4);
-            this.CustRegHacks_Panel.Controls.Add(this.radioButton3);
-            this.CustRegHacks_Panel.Controls.Add(this.radioButton2);
-            this.CustRegHacks_Panel.Controls.Add(this.radioButton1);
+            this.CustRegHacks_Panel.Controls.Add(this.BinaryType_RB);
+            this.CustRegHacks_Panel.Controls.Add(this.StringType_RB);
             this.CustRegHacks_Panel.Controls.Add(this.RegistryKeyValue_TB);
             this.CustRegHacks_Panel.Controls.Add(this.RegistryKeyName_TB);
             this.CustRegHacks_Panel.Controls.Add(this.RegistryKeyPath_TB);
@@ -627,57 +732,213 @@
             this.CustRegHacks_Panel.TabIndex = 12;
             this.CustRegHacks_Panel.Visible = false;
             // 
-            // RegistryKeyPath_LB
+            // VariableStringType_RB
             // 
-            this.RegistryKeyPath_LB.AutoSize = true;
-            this.RegistryKeyPath_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistryKeyPath_LB.Location = new System.Drawing.Point(20, 7);
-            this.RegistryKeyPath_LB.Name = "RegistryKeyPath_LB";
-            this.RegistryKeyPath_LB.Size = new System.Drawing.Size(166, 28);
-            this.RegistryKeyPath_LB.TabIndex = 13;
-            this.RegistryKeyPath_LB.Text = "Registry Key Path:";
+            this.VariableStringType_RB.AutoSize = true;
+            this.VariableStringType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VariableStringType_RB.Location = new System.Drawing.Point(308, 124);
+            this.VariableStringType_RB.Name = "VariableStringType_RB";
+            this.VariableStringType_RB.Size = new System.Drawing.Size(180, 32);
+            this.VariableStringType_RB.TabIndex = 15;
+            this.VariableStringType_RB.Text = "VariableString (2)";
+            this.VariableStringType_RB.UseVisualStyleBackColor = true;
             // 
-            // RegistryKeyPath_TB
+            // SymbolicLinkType_RB
             // 
-            this.RegistryKeyPath_TB.BackColor = System.Drawing.Color.Black;
-            this.RegistryKeyPath_TB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RegistryKeyPath_TB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistryKeyPath_TB.ForeColor = System.Drawing.Color.White;
-            this.RegistryKeyPath_TB.Location = new System.Drawing.Point(206, 5);
-            this.RegistryKeyPath_TB.Name = "RegistryKeyPath_TB";
-            this.RegistryKeyPath_TB.Size = new System.Drawing.Size(518, 34);
-            this.RegistryKeyPath_TB.TabIndex = 14;
+            this.SymbolicLinkType_RB.AutoSize = true;
+            this.SymbolicLinkType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SymbolicLinkType_RB.Location = new System.Drawing.Point(238, 157);
+            this.SymbolicLinkType_RB.Name = "SymbolicLinkType_RB";
+            this.SymbolicLinkType_RB.Size = new System.Drawing.Size(173, 32);
+            this.SymbolicLinkType_RB.TabIndex = 15;
+            this.SymbolicLinkType_RB.Text = "SymbolicLink (6)";
+            this.SymbolicLinkType_RB.UseVisualStyleBackColor = true;
             // 
-            // RegistryKeyName_LB
+            // ResourceListType_RB
             // 
-            this.RegistryKeyName_LB.AutoSize = true;
-            this.RegistryKeyName_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistryKeyName_LB.Location = new System.Drawing.Point(21, 47);
-            this.RegistryKeyName_LB.Name = "RegistryKeyName_LB";
-            this.RegistryKeyName_LB.Size = new System.Drawing.Size(180, 28);
-            this.RegistryKeyName_LB.TabIndex = 13;
-            this.RegistryKeyName_LB.Text = "Registry Key Name:";
+            this.ResourceListType_RB.AutoSize = true;
+            this.ResourceListType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResourceListType_RB.Location = new System.Drawing.Point(579, 157);
+            this.ResourceListType_RB.Name = "ResourceListType_RB";
+            this.ResourceListType_RB.Size = new System.Drawing.Size(165, 32);
+            this.ResourceListType_RB.TabIndex = 15;
+            this.ResourceListType_RB.Text = "ResourceList (8)";
+            this.ResourceListType_RB.UseVisualStyleBackColor = true;
             // 
-            // RegistryKeyName_TB
+            // IntegerBigEndianType_RB
             // 
-            this.RegistryKeyName_TB.BackColor = System.Drawing.Color.Black;
-            this.RegistryKeyName_TB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RegistryKeyName_TB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistryKeyName_TB.ForeColor = System.Drawing.Color.White;
-            this.RegistryKeyName_TB.Location = new System.Drawing.Point(207, 45);
-            this.RegistryKeyName_TB.Name = "RegistryKeyName_TB";
-            this.RegistryKeyName_TB.Size = new System.Drawing.Size(518, 34);
-            this.RegistryKeyName_TB.TabIndex = 14;
+            this.IntegerBigEndianType_RB.AutoSize = true;
+            this.IntegerBigEndianType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IntegerBigEndianType_RB.Location = new System.Drawing.Point(25, 157);
+            this.IntegerBigEndianType_RB.Name = "IntegerBigEndianType_RB";
+            this.IntegerBigEndianType_RB.Size = new System.Drawing.Size(207, 32);
+            this.IntegerBigEndianType_RB.TabIndex = 15;
+            this.IntegerBigEndianType_RB.Text = "IntegerBigEndian (5)";
+            this.IntegerBigEndianType_RB.UseVisualStyleBackColor = true;
             // 
-            // RegistryKeyValue_LB
+            // MultiStringType_RB
             // 
-            this.RegistryKeyValue_LB.AutoSize = true;
-            this.RegistryKeyValue_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistryKeyValue_LB.Location = new System.Drawing.Point(20, 87);
-            this.RegistryKeyValue_LB.Name = "RegistryKeyValue_LB";
-            this.RegistryKeyValue_LB.Size = new System.Drawing.Size(175, 28);
-            this.RegistryKeyValue_LB.TabIndex = 13;
-            this.RegistryKeyValue_LB.Text = "Registry Key Value:";
+            this.MultiStringType_RB.AutoSize = true;
+            this.MultiStringType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MultiStringType_RB.Location = new System.Drawing.Point(417, 157);
+            this.MultiStringType_RB.Name = "MultiStringType_RB";
+            this.MultiStringType_RB.Size = new System.Drawing.Size(156, 32);
+            this.MultiStringType_RB.TabIndex = 15;
+            this.MultiStringType_RB.Text = "MultiString (7)";
+            this.MultiStringType_RB.UseVisualStyleBackColor = true;
+            // 
+            // HardwareResourceListType_RB
+            // 
+            this.HardwareResourceListType_RB.AutoSize = true;
+            this.HardwareResourceListType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HardwareResourceListType_RB.Location = new System.Drawing.Point(25, 192);
+            this.HardwareResourceListType_RB.Name = "HardwareResourceListType_RB";
+            this.HardwareResourceListType_RB.Size = new System.Drawing.Size(249, 32);
+            this.HardwareResourceListType_RB.TabIndex = 15;
+            this.HardwareResourceListType_RB.Text = "HardwareResourceList (9)";
+            this.HardwareResourceListType_RB.UseVisualStyleBackColor = true;
+            // 
+            // ResourceRequirementType_RB
+            // 
+            this.ResourceRequirementType_RB.AutoSize = true;
+            this.ResourceRequirementType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResourceRequirementType_RB.Location = new System.Drawing.Point(280, 192);
+            this.ResourceRequirementType_RB.Name = "ResourceRequirementType_RB";
+            this.ResourceRequirementType_RB.Size = new System.Drawing.Size(258, 32);
+            this.ResourceRequirementType_RB.TabIndex = 15;
+            this.ResourceRequirementType_RB.Text = "ResourceRequirement (10)";
+            this.ResourceRequirementType_RB.UseVisualStyleBackColor = true;
+            // 
+            // LongType_RB
+            // 
+            this.LongType_RB.AutoSize = true;
+            this.LongType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LongType_RB.Location = new System.Drawing.Point(544, 192);
+            this.LongType_RB.Name = "LongType_RB";
+            this.LongType_RB.Size = new System.Drawing.Size(113, 32);
+            this.LongType_RB.TabIndex = 15;
+            this.LongType_RB.Text = "Long (11)";
+            this.LongType_RB.UseVisualStyleBackColor = true;
+            // 
+            // IntegerType_RB
+            // 
+            this.IntegerType_RB.AutoSize = true;
+            this.IntegerType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IntegerType_RB.Location = new System.Drawing.Point(612, 124);
+            this.IntegerType_RB.Name = "IntegerType_RB";
+            this.IntegerType_RB.Size = new System.Drawing.Size(120, 32);
+            this.IntegerType_RB.TabIndex = 15;
+            this.IntegerType_RB.Text = "Integer (4)";
+            this.IntegerType_RB.UseVisualStyleBackColor = true;
+            // 
+            // KeysToDeleteCustHacks_RTB
+            // 
+            this.KeysToDeleteCustHacks_RTB.BackColor = System.Drawing.Color.Black;
+            this.KeysToDeleteCustHacks_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.KeysToDeleteCustHacks_RTB.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeysToDeleteCustHacks_RTB.ForeColor = System.Drawing.Color.White;
+            this.KeysToDeleteCustHacks_RTB.Location = new System.Drawing.Point(386, 243);
+            this.KeysToDeleteCustHacks_RTB.Name = "KeysToDeleteCustHacks_RTB";
+            this.KeysToDeleteCustHacks_RTB.Size = new System.Drawing.Size(367, 157);
+            this.KeysToDeleteCustHacks_RTB.TabIndex = 19;
+            this.KeysToDeleteCustHacks_RTB.Text = "";
+            this.KeysToDeleteCustHacks_RTB.WordWrap = false;
+            // 
+            // KeysToAddCustHacks_RTB
+            // 
+            this.KeysToAddCustHacks_RTB.BackColor = System.Drawing.Color.Black;
+            this.KeysToAddCustHacks_RTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.KeysToAddCustHacks_RTB.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeysToAddCustHacks_RTB.ForeColor = System.Drawing.Color.White;
+            this.KeysToAddCustHacks_RTB.Location = new System.Drawing.Point(13, 243);
+            this.KeysToAddCustHacks_RTB.Name = "KeysToAddCustHacks_RTB";
+            this.KeysToAddCustHacks_RTB.Size = new System.Drawing.Size(367, 157);
+            this.KeysToAddCustHacks_RTB.TabIndex = 19;
+            this.KeysToAddCustHacks_RTB.Text = "";
+            this.KeysToAddCustHacks_RTB.WordWrap = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(383, 225);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Keys to remove";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 227);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Keys to add";
+            // 
+            // RemoveKey_Btn
+            // 
+            this.RemoveKey_Btn.BackColor = System.Drawing.Color.Black;
+            this.RemoveKey_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveKey_Btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveKey_Btn.Location = new System.Drawing.Point(386, 401);
+            this.RemoveKey_Btn.Name = "RemoveKey_Btn";
+            this.RemoveKey_Btn.Size = new System.Drawing.Size(253, 31);
+            this.RemoveKey_Btn.TabIndex = 17;
+            this.RemoveKey_Btn.Text = "Add \"Key to remove\" to the list";
+            this.RemoveKey_Btn.UseVisualStyleBackColor = false;
+            this.RemoveKey_Btn.Click += new System.EventHandler(this.RemoveKey_Btn_Click);
+            // 
+            // AddKey_Btn
+            // 
+            this.AddKey_Btn.BackColor = System.Drawing.Color.Black;
+            this.AddKey_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddKey_Btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddKey_Btn.Location = new System.Drawing.Point(13, 401);
+            this.AddKey_Btn.Name = "AddKey_Btn";
+            this.AddKey_Btn.Size = new System.Drawing.Size(246, 31);
+            this.AddKey_Btn.TabIndex = 17;
+            this.AddKey_Btn.Text = "Add \"Key to add\" to the list";
+            this.AddKey_Btn.UseVisualStyleBackColor = false;
+            this.AddKey_Btn.Click += new System.EventHandler(this.AddKey_Btn_Click);
+            // 
+            // ApplyCustHacks_Btn
+            // 
+            this.ApplyCustHacks_Btn.BackColor = System.Drawing.Color.Black;
+            this.ApplyCustHacks_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApplyCustHacks_Btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplyCustHacks_Btn.Location = new System.Drawing.Point(665, 401);
+            this.ApplyCustHacks_Btn.Name = "ApplyCustHacks_Btn";
+            this.ApplyCustHacks_Btn.Size = new System.Drawing.Size(88, 31);
+            this.ApplyCustHacks_Btn.TabIndex = 17;
+            this.ApplyCustHacks_Btn.Text = "Apply";
+            this.ApplyCustHacks_Btn.UseVisualStyleBackColor = false;
+            this.ApplyCustHacks_Btn.Click += new System.EventHandler(this.ApplyCustHacks_Btn_Click);
+            // 
+            // BinaryType_RB
+            // 
+            this.BinaryType_RB.AutoSize = true;
+            this.BinaryType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BinaryType_RB.Location = new System.Drawing.Point(494, 124);
+            this.BinaryType_RB.Name = "BinaryType_RB";
+            this.BinaryType_RB.Size = new System.Drawing.Size(112, 32);
+            this.BinaryType_RB.TabIndex = 15;
+            this.BinaryType_RB.Text = "Binary (3)";
+            this.BinaryType_RB.UseVisualStyleBackColor = true;
+            // 
+            // StringType_RB
+            // 
+            this.StringType_RB.AutoSize = true;
+            this.StringType_RB.Checked = true;
+            this.StringType_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StringType_RB.Location = new System.Drawing.Point(192, 124);
+            this.StringType_RB.Name = "StringType_RB";
+            this.StringType_RB.Size = new System.Drawing.Size(110, 32);
+            this.StringType_RB.TabIndex = 15;
+            this.StringType_RB.TabStop = true;
+            this.StringType_RB.Text = "String (1)";
+            this.StringType_RB.UseVisualStyleBackColor = true;
             // 
             // RegistryKeyValue_TB
             // 
@@ -690,137 +951,268 @@
             this.RegistryKeyValue_TB.Size = new System.Drawing.Size(518, 34);
             this.RegistryKeyValue_TB.TabIndex = 14;
             // 
+            // RegistryKeyName_TB
+            // 
+            this.RegistryKeyName_TB.BackColor = System.Drawing.Color.Black;
+            this.RegistryKeyName_TB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RegistryKeyName_TB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistryKeyName_TB.ForeColor = System.Drawing.Color.White;
+            this.RegistryKeyName_TB.Location = new System.Drawing.Point(207, 45);
+            this.RegistryKeyName_TB.Name = "RegistryKeyName_TB";
+            this.RegistryKeyName_TB.Size = new System.Drawing.Size(518, 34);
+            this.RegistryKeyName_TB.TabIndex = 14;
+            // 
+            // RegistryKeyPath_TB
+            // 
+            this.RegistryKeyPath_TB.BackColor = System.Drawing.Color.Black;
+            this.RegistryKeyPath_TB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RegistryKeyPath_TB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistryKeyPath_TB.ForeColor = System.Drawing.Color.White;
+            this.RegistryKeyPath_TB.Location = new System.Drawing.Point(206, 5);
+            this.RegistryKeyPath_TB.Name = "RegistryKeyPath_TB";
+            this.RegistryKeyPath_TB.Size = new System.Drawing.Size(518, 34);
+            this.RegistryKeyPath_TB.TabIndex = 14;
+            // 
             // RegistryKeyType_LB
             // 
             this.RegistryKeyType_LB.AutoSize = true;
             this.RegistryKeyType_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistryKeyType_LB.Location = new System.Drawing.Point(21, 124);
+            this.RegistryKeyType_LB.Location = new System.Drawing.Point(21, 126);
             this.RegistryKeyType_LB.Name = "RegistryKeyType_LB";
             this.RegistryKeyType_LB.Size = new System.Drawing.Size(169, 28);
             this.RegistryKeyType_LB.TabIndex = 13;
             this.RegistryKeyType_LB.Text = "Registry Key Type:";
             // 
-            // radioButton1
+            // RegistryKeyValue_LB
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(195, 122);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(110, 32);
-            this.radioButton1.TabIndex = 15;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "String (1)";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RegistryKeyValue_LB.AutoSize = true;
+            this.RegistryKeyValue_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistryKeyValue_LB.Location = new System.Drawing.Point(20, 87);
+            this.RegistryKeyValue_LB.Name = "RegistryKeyValue_LB";
+            this.RegistryKeyValue_LB.Size = new System.Drawing.Size(175, 28);
+            this.RegistryKeyValue_LB.TabIndex = 13;
+            this.RegistryKeyValue_LB.Text = "Registry Key Value:";
             // 
-            // radioButton2
+            // RegistryKeyName_LB
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(429, 122);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(120, 32);
-            this.radioButton2.TabIndex = 15;
-            this.radioButton2.Text = "Integer (4)";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RegistryKeyName_LB.AutoSize = true;
+            this.RegistryKeyName_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistryKeyName_LB.Location = new System.Drawing.Point(21, 47);
+            this.RegistryKeyName_LB.Name = "RegistryKeyName_LB";
+            this.RegistryKeyName_LB.Size = new System.Drawing.Size(180, 28);
+            this.RegistryKeyName_LB.TabIndex = 13;
+            this.RegistryKeyName_LB.Text = "Registry Key Name:";
             // 
-            // radioButton3
+            // RegistryKeyPath_LB
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(311, 122);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(112, 32);
-            this.radioButton3.TabIndex = 15;
-            this.radioButton3.Text = "Binary (3)";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.RegistryKeyPath_LB.AutoSize = true;
+            this.RegistryKeyPath_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistryKeyPath_LB.Location = new System.Drawing.Point(20, 7);
+            this.RegistryKeyPath_LB.Name = "RegistryKeyPath_LB";
+            this.RegistryKeyPath_LB.Size = new System.Drawing.Size(166, 28);
+            this.RegistryKeyPath_LB.TabIndex = 13;
+            this.RegistryKeyPath_LB.Text = "Registry Key Path:";
             // 
-            // radioButton4
+            // Settings_Panel
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(555, 125);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(113, 32);
-            this.radioButton4.TabIndex = 15;
-            this.radioButton4.Text = "Long (11)";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.Settings_Panel.Controls.Add(this.ApplySettings_Btn);
+            this.Settings_Panel.Controls.Add(this.PortSettings_TB);
+            this.Settings_Panel.Controls.Add(this.SettingsSettings_LB);
+            this.Settings_Panel.Controls.Add(this.PortSettings_LB);
+            this.Settings_Panel.Location = new System.Drawing.Point(11, 117);
+            this.Settings_Panel.Name = "Settings_Panel";
+            this.Settings_Panel.Size = new System.Drawing.Size(761, 432);
+            this.Settings_Panel.TabIndex = 13;
+            this.Settings_Panel.Visible = false;
             // 
-            // textBox1
+            // ApplySettings_Btn
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(13, 182);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(367, 207);
-            this.textBox1.TabIndex = 16;
+            this.ApplySettings_Btn.BackColor = System.Drawing.Color.Black;
+            this.ApplySettings_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApplySettings_Btn.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplySettings_Btn.Location = new System.Drawing.Point(646, 82);
+            this.ApplySettings_Btn.Name = "ApplySettings_Btn";
+            this.ApplySettings_Btn.Size = new System.Drawing.Size(115, 47);
+            this.ApplySettings_Btn.TabIndex = 17;
+            this.ApplySettings_Btn.Text = "Apply";
+            this.ApplySettings_Btn.UseVisualStyleBackColor = false;
+            this.ApplySettings_Btn.Click += new System.EventHandler(this.ApplySettings_Btn_Click);
             // 
-            // textBox2
+            // PortSettings_TB
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Black;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(386, 182);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(372, 207);
-            this.textBox2.TabIndex = 16;
+            this.PortSettings_TB.BackColor = System.Drawing.Color.Black;
+            this.PortSettings_TB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PortSettings_TB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortSettings_TB.ForeColor = System.Drawing.Color.White;
+            this.PortSettings_TB.Location = new System.Drawing.Point(120, 89);
+            this.PortSettings_TB.Name = "PortSettings_TB";
+            this.PortSettings_TB.Size = new System.Drawing.Size(182, 34);
+            this.PortSettings_TB.TabIndex = 16;
+            this.PortSettings_TB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PortSettings_TB_KeyPress);
             // 
-            // ApplyCustHacks_Btn
+            // SettingsSettings_LB
             // 
-            this.ApplyCustHacks_Btn.BackColor = System.Drawing.Color.Black;
-            this.ApplyCustHacks_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ApplyCustHacks_Btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplyCustHacks_Btn.Location = new System.Drawing.Point(665, 395);
-            this.ApplyCustHacks_Btn.Name = "ApplyCustHacks_Btn";
-            this.ApplyCustHacks_Btn.Size = new System.Drawing.Size(96, 37);
-            this.ApplyCustHacks_Btn.TabIndex = 17;
-            this.ApplyCustHacks_Btn.Text = "Apply";
-            this.ApplyCustHacks_Btn.UseVisualStyleBackColor = false;
+            this.SettingsSettings_LB.AutoSize = true;
+            this.SettingsSettings_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsSettings_LB.Location = new System.Drawing.Point(20, 26);
+            this.SettingsSettings_LB.Name = "SettingsSettings_LB";
+            this.SettingsSettings_LB.Size = new System.Drawing.Size(87, 28);
+            this.SettingsSettings_LB.TabIndex = 15;
+            this.SettingsSettings_LB.Text = "Settings:";
             // 
-            // label1
+            // PortSettings_LB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 165);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Keys to add";
+            this.PortSettings_LB.AutoSize = true;
+            this.PortSettings_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortSettings_LB.Location = new System.Drawing.Point(55, 91);
+            this.PortSettings_LB.Name = "PortSettings_LB";
+            this.PortSettings_LB.Size = new System.Drawing.Size(52, 28);
+            this.PortSettings_LB.TabIndex = 15;
+            this.PortSettings_LB.Text = "Port:";
             // 
-            // label2
+            // Info_Panel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(385, 166);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Keys to remove";
+            this.Info_Panel.Controls.Add(this.ADX_PB);
+            this.Info_Panel.Controls.Add(this.License_LLB);
+            this.Info_Panel.Controls.Add(this.XDA_LLB);
+            this.Info_Panel.Controls.Add(this.Website_LLB);
+            this.Info_Panel.Controls.Add(this.Thanks_RTB);
+            this.Info_Panel.Controls.Add(this.Thanks_LB);
+            this.Info_Panel.Controls.Add(this.Version_LB);
+            this.Info_Panel.Controls.Add(this.License_LB);
+            this.Info_Panel.Controls.Add(this.XDAUser_LB);
+            this.Info_Panel.Controls.Add(this.Website_LB);
+            this.Info_Panel.Controls.Add(this.CreatedBy_LB);
+            this.Info_Panel.Location = new System.Drawing.Point(11, 117);
+            this.Info_Panel.Name = "Info_Panel";
+            this.Info_Panel.Size = new System.Drawing.Size(761, 432);
+            this.Info_Panel.TabIndex = 14;
+            this.Info_Panel.Visible = false;
             // 
-            // button1
+            // License_LLB
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(104, 395);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 37);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Add Key";
-            this.button1.UseVisualStyleBackColor = false;
+            this.License_LLB.ActiveLinkColor = System.Drawing.Color.Silver;
+            this.License_LLB.AutoSize = true;
+            this.License_LLB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.License_LLB.LinkColor = System.Drawing.Color.Yellow;
+            this.License_LLB.Location = new System.Drawing.Point(115, 151);
+            this.License_LLB.Name = "License_LLB";
+            this.License_LLB.Size = new System.Drawing.Size(120, 28);
+            this.License_LLB.TabIndex = 18;
+            this.License_LLB.TabStop = true;
+            this.License_LLB.Text = "GNU GPL v3";
+            this.License_LLB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.License_LLB_LinkClicked);
             // 
-            // button2
+            // XDA_LLB
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(476, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 37);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Remove Key";
-            this.button2.UseVisualStyleBackColor = false;
+            this.XDA_LLB.ActiveLinkColor = System.Drawing.Color.Silver;
+            this.XDA_LLB.AutoSize = true;
+            this.XDA_LLB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XDA_LLB.LinkColor = System.Drawing.Color.Yellow;
+            this.XDA_LLB.Location = new System.Drawing.Point(139, 112);
+            this.XDA_LLB.Name = "XDA_LLB";
+            this.XDA_LLB.Size = new System.Drawing.Size(47, 28);
+            this.XDA_LLB.TabIndex = 18;
+            this.XDA_LLB.TabStop = true;
+            this.XDA_LLB.Text = "Link";
+            this.XDA_LLB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.XDA_LLB_LinkClicked);
+            // 
+            // Website_LLB
+            // 
+            this.Website_LLB.ActiveLinkColor = System.Drawing.Color.Silver;
+            this.Website_LLB.AutoSize = true;
+            this.Website_LLB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Website_LLB.LinkColor = System.Drawing.Color.Yellow;
+            this.Website_LLB.Location = new System.Drawing.Point(198, 74);
+            this.Website_LLB.Name = "Website_LLB";
+            this.Website_LLB.Size = new System.Drawing.Size(47, 28);
+            this.Website_LLB.TabIndex = 18;
+            this.Website_LLB.TabStop = true;
+            this.Website_LLB.Text = "Link";
+            this.Website_LLB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Website_LLB_LinkClicked);
+            // 
+            // Thanks_RTB
+            // 
+            this.Thanks_RTB.BackColor = System.Drawing.Color.Black;
+            this.Thanks_RTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Thanks_RTB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Thanks_RTB.ForeColor = System.Drawing.Color.White;
+            this.Thanks_RTB.Location = new System.Drawing.Point(36, 297);
+            this.Thanks_RTB.Name = "Thanks_RTB";
+            this.Thanks_RTB.Size = new System.Drawing.Size(722, 116);
+            this.Thanks_RTB.TabIndex = 17;
+            this.Thanks_RTB.Text = "RustyGrom (for his tutorial):\nhttp://forum.xda-developers.com/windows-phone-8/dev" +
+    "elopment/howto-install-windows-10-phones-t3030105\nBased on FiddlerCore";
+            // 
+            // Thanks_LB
+            // 
+            this.Thanks_LB.AutoSize = true;
+            this.Thanks_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Thanks_LB.Location = new System.Drawing.Point(31, 252);
+            this.Thanks_LB.Name = "Thanks_LB";
+            this.Thanks_LB.Size = new System.Drawing.Size(100, 28);
+            this.Thanks_LB.TabIndex = 16;
+            this.Thanks_LB.Text = "Thanks to:";
+            // 
+            // Version_LB
+            // 
+            this.Version_LB.AutoSize = true;
+            this.Version_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Version_LB.Location = new System.Drawing.Point(31, 191);
+            this.Version_LB.Name = "Version_LB";
+            this.Version_LB.Size = new System.Drawing.Size(85, 28);
+            this.Version_LB.TabIndex = 16;
+            this.Version_LB.Text = "Version: ";
+            // 
+            // License_LB
+            // 
+            this.License_LB.AutoSize = true;
+            this.License_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.License_LB.Location = new System.Drawing.Point(31, 151);
+            this.License_LB.Name = "License_LB";
+            this.License_LB.Size = new System.Drawing.Size(78, 28);
+            this.License_LB.TabIndex = 16;
+            this.License_LB.Text = "License:";
+            // 
+            // XDAUser_LB
+            // 
+            this.XDAUser_LB.AutoSize = true;
+            this.XDAUser_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XDAUser_LB.Location = new System.Drawing.Point(31, 112);
+            this.XDAUser_LB.Name = "XDAUser_LB";
+            this.XDAUser_LB.Size = new System.Drawing.Size(99, 28);
+            this.XDAUser_LB.TabIndex = 16;
+            this.XDAUser_LB.Text = "XDA User:";
+            // 
+            // Website_LB
+            // 
+            this.Website_LB.AutoSize = true;
+            this.Website_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Website_LB.Location = new System.Drawing.Point(31, 74);
+            this.Website_LB.Name = "Website_LB";
+            this.Website_LB.Size = new System.Drawing.Size(161, 28);
+            this.Website_LB.TabIndex = 16;
+            this.Website_LB.Text = "Website (Italian): ";
+            // 
+            // CreatedBy_LB
+            // 
+            this.CreatedBy_LB.AutoSize = true;
+            this.CreatedBy_LB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreatedBy_LB.Location = new System.Drawing.Point(31, 35);
+            this.CreatedBy_LB.Name = "CreatedBy_LB";
+            this.CreatedBy_LB.Size = new System.Drawing.Size(116, 28);
+            this.CreatedBy_LB.TabIndex = 16;
+            this.CreatedBy_LB.Text = "Created by: ";
+            // 
+            // ADX_PB
+            // 
+            this.ADX_PB.Image = ((System.Drawing.Image)(resources.GetObject("ADX_PB.Image")));
+            this.ADX_PB.InitialImage = ((System.Drawing.Image)(resources.GetObject("ADX_PB.InitialImage")));
+            this.ADX_PB.Location = new System.Drawing.Point(633, 1);
+            this.ADX_PB.Name = "ADX_PB";
+            this.ADX_PB.Size = new System.Drawing.Size(128, 128);
+            this.ADX_PB.TabIndex = 19;
+            this.ADX_PB.TabStop = false;
             // 
             // Main
             // 
@@ -828,6 +1220,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Info_Panel);
+            this.Controls.Add(this.Settings_Panel);
             this.Controls.Add(this.CustRegHacks_Panel);
             this.Controls.Add(this.KeysToDelete_TB);
             this.Controls.Add(this.KeysToAdd_TB);
@@ -846,26 +1240,34 @@
             this.Controls.Add(this.InfoProxy_Panel);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main Menu | Server Proxy: OFF";
+            this.Text = "Main Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.InfoProxy_Panel.ResumeLayout(false);
             this.InfoProxy_Panel.PerformLayout();
             this.RegistryHacks_Panel.ResumeLayout(false);
             this.RegistryHacks_Panel.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MICUV_Nup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MSUV_Nup)).EndInit();
             this.PfD_GB.ResumeLayout(false);
             this.PfD_GB.PerformLayout();
             this.Neverlock_GB.ResumeLayout(false);
             this.Neverlock_GB.PerformLayout();
             this.Aboutmoz_GB.ResumeLayout(false);
             this.Aboutmoz_GB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MSUV_Nup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MICUV_Nup)).EndInit();
             this.CustRegHacks_Panel.ResumeLayout(false);
             this.CustRegHacks_Panel.PerformLayout();
+            this.Settings_Panel.ResumeLayout(false);
+            this.Settings_Panel.PerformLayout();
+            this.Info_Panel.ResumeLayout(false);
+            this.Info_Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ADX_PB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -923,17 +1325,46 @@
         private System.Windows.Forms.TextBox RegistryKeyValue_TB;
         private System.Windows.Forms.Label RegistryKeyValue_LB;
         private System.Windows.Forms.Label RegistryKeyType_LB;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton LongType_RB;
+        private System.Windows.Forms.RadioButton BinaryType_RB;
+        private System.Windows.Forms.RadioButton IntegerType_RB;
+        private System.Windows.Forms.RadioButton StringType_RB;
         private System.Windows.Forms.Button ApplyCustHacks_Btn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RemoveKey_Btn;
+        private System.Windows.Forms.Button AddKey_Btn;
+        private System.Windows.Forms.RichTextBox KeysToAddCustHacks_RTB;
+        private System.Windows.Forms.RichTextBox KeysToDeleteCustHacks_RTB;
+        private System.Windows.Forms.RadioButton MultiStringType_RB;
+        private System.Windows.Forms.RadioButton SymbolicLinkType_RB;
+        private System.Windows.Forms.RadioButton ResourceListType_RB;
+        private System.Windows.Forms.RadioButton IntegerBigEndianType_RB;
+        private System.Windows.Forms.RadioButton VariableStringType_RB;
+        private System.Windows.Forms.RadioButton HardwareResourceListType_RB;
+        private System.Windows.Forms.RadioButton ResourceRequirementType_RB;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton SmallWidth_RB;
+        private System.Windows.Forms.RadioButton LargeWidth_RB;
+        private System.Windows.Forms.RadioButton MediumWidth_RB;
+        private System.Windows.Forms.CheckBox UserPreferenceWidth_CB;
+        private System.Windows.Forms.Panel Settings_Panel;
+        private System.Windows.Forms.TextBox PortSettings_TB;
+        private System.Windows.Forms.Label SettingsSettings_LB;
+        private System.Windows.Forms.Label PortSettings_LB;
+        private System.Windows.Forms.Button ApplySettings_Btn;
+        private System.Windows.Forms.Panel Info_Panel;
+        private System.Windows.Forms.Label Thanks_LB;
+        private System.Windows.Forms.Label License_LB;
+        private System.Windows.Forms.Label CreatedBy_LB;
+        private System.Windows.Forms.Label XDAUser_LB;
+        private System.Windows.Forms.Label Website_LB;
+        private System.Windows.Forms.Label Version_LB;
+        private System.Windows.Forms.RichTextBox Thanks_RTB;
+        private System.Windows.Forms.LinkLabel License_LLB;
+        private System.Windows.Forms.LinkLabel XDA_LLB;
+        private System.Windows.Forms.LinkLabel Website_LLB;
+        private System.Windows.Forms.PictureBox ADX_PB;
     }
 }
 
