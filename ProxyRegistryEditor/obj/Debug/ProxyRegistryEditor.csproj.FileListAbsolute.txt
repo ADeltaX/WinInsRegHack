@@ -1,0 +1,13 @@
+C:\Users\ADeltaX\AppData\Local\Temporary Projects\ProxyRegistryEditor\bin\Debug\ProxyRegistryEditor.exe.config
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\bin\Debug\ProxyRegistryEditor.exe.config
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\bin\Debug\ProxyRegistryEditor.exe
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\bin\Debug\ProxyRegistryEditor.pdb
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Debug\ProxyRegistryEditor.csprojResolveAssemblyReference.cache
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Debug\ProxyRegistryEditor.Main.resources
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Debug\ProxyRegistryEditor.Properties.Resources.resources
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Debug\ProxyRegistryEditor.csproj.GenerateResource.Cache
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Debug\ProxyRegistryEditor.exe
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Debug\ProxyRegistryEditor.pdb
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Debug\ProxyRegistryEditor.ConfigLoader.resources
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\bin\Debug\FiddlerCore.dll
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\bin\Debug\FiddlerCore.xml
