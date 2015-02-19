@@ -9,3 +9,4 @@ C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\Proxy
 C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Release\ProxyRegistryEditor.csproj.GenerateResource.Cache
 C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Release\ProxyRegistryEditor.exe
 C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Release\ProxyRegistryEditor.pdb
+C:\Users\ADeltaX\Documents\Visual Studio 2013\Projects\ProxyRegistryEditor\ProxyRegistryEditor\obj\Release\ProxyRegistryEditor.csprojResolveAssemblyReference.cache
