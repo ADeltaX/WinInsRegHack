@@ -48,12 +48,13 @@
             this.Console_LB = new System.Windows.Forms.Label();
             this.InfoProxy_Panel = new System.Windows.Forms.Panel();
             this.RegistryHacks_Panel = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.UserPreferenceWidth_GB = new System.Windows.Forms.GroupBox();
             this.SmallWidth_RB = new System.Windows.Forms.RadioButton();
             this.LargeWidth_RB = new System.Windows.Forms.RadioButton();
             this.MediumWidth_RB = new System.Windows.Forms.RadioButton();
             this.MICUV_Nup = new System.Windows.Forms.NumericUpDown();
             this.MSUV_Nup = new System.Windows.Forms.NumericUpDown();
+            this.HideAPN_CB = new System.Windows.Forms.CheckBox();
             this.UserPreferenceWidth_CB = new System.Windows.Forms.CheckBox();
             this.MaxInCallUIVolume_CB = new System.Windows.Forms.CheckBox();
             this.MaxSystemUIVolume_LB = new System.Windows.Forms.CheckBox();
@@ -61,6 +62,9 @@
             this.PfD_GB = new System.Windows.Forms.GroupBox();
             this.PfDDisable_RB = new System.Windows.Forms.RadioButton();
             this.PfDEnable_RB = new System.Windows.Forms.RadioButton();
+            this.HideAPN_GB = new System.Windows.Forms.GroupBox();
+            this.HideAPNYes_RB = new System.Windows.Forms.RadioButton();
+            this.HideAPNNo_RB = new System.Windows.Forms.RadioButton();
             this.Neverlock_GB = new System.Windows.Forms.GroupBox();
             this.NeverlockEnable_RB = new System.Windows.Forms.RadioButton();
             this.NeverlockDisable_RB = new System.Windows.Forms.RadioButton();
@@ -108,6 +112,7 @@
             this.SettingsSettings_LB = new System.Windows.Forms.Label();
             this.PortSettings_LB = new System.Windows.Forms.Label();
             this.Info_Panel = new System.Windows.Forms.Panel();
+            this.ADX_PB = new System.Windows.Forms.PictureBox();
             this.License_LLB = new System.Windows.Forms.LinkLabel();
             this.XDA_LLB = new System.Windows.Forms.LinkLabel();
             this.Website_LLB = new System.Windows.Forms.LinkLabel();
@@ -118,13 +123,14 @@
             this.XDAUser_LB = new System.Windows.Forms.Label();
             this.Website_LB = new System.Windows.Forms.Label();
             this.CreatedBy_LB = new System.Windows.Forms.Label();
-            this.ADX_PB = new System.Windows.Forms.PictureBox();
+            this.EnableCustCert_CB = new System.Windows.Forms.CheckBox();
             this.InfoProxy_Panel.SuspendLayout();
             this.RegistryHacks_Panel.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.UserPreferenceWidth_GB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MICUV_Nup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MSUV_Nup)).BeginInit();
             this.PfD_GB.SuspendLayout();
+            this.HideAPN_GB.SuspendLayout();
             this.Neverlock_GB.SuspendLayout();
             this.Aboutmoz_GB.SuspendLayout();
             this.CustRegHacks_Panel.SuspendLayout();
@@ -355,14 +361,16 @@
             this.RegistryHacks_Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RegistryHacks_Panel.Controls.Add(this.groupBox1);
+            this.RegistryHacks_Panel.Controls.Add(this.UserPreferenceWidth_GB);
             this.RegistryHacks_Panel.Controls.Add(this.MICUV_Nup);
             this.RegistryHacks_Panel.Controls.Add(this.MSUV_Nup);
+            this.RegistryHacks_Panel.Controls.Add(this.HideAPN_CB);
             this.RegistryHacks_Panel.Controls.Add(this.UserPreferenceWidth_CB);
             this.RegistryHacks_Panel.Controls.Add(this.MaxInCallUIVolume_CB);
             this.RegistryHacks_Panel.Controls.Add(this.MaxSystemUIVolume_LB);
             this.RegistryHacks_Panel.Controls.Add(this.ApplyHacks_Btn);
             this.RegistryHacks_Panel.Controls.Add(this.PfD_GB);
+            this.RegistryHacks_Panel.Controls.Add(this.HideAPN_GB);
             this.RegistryHacks_Panel.Controls.Add(this.Neverlock_GB);
             this.RegistryHacks_Panel.Controls.Add(this.Aboutmoz_GB);
             this.RegistryHacks_Panel.Controls.Add(this.MTPFolder_TB);
@@ -376,16 +384,16 @@
             this.RegistryHacks_Panel.TabIndex = 10;
             this.RegistryHacks_Panel.Visible = false;
             // 
-            // groupBox1
+            // UserPreferenceWidth_GB
             // 
-            this.groupBox1.Controls.Add(this.SmallWidth_RB);
-            this.groupBox1.Controls.Add(this.LargeWidth_RB);
-            this.groupBox1.Controls.Add(this.MediumWidth_RB);
-            this.groupBox1.Location = new System.Drawing.Point(256, 297);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(249, 83);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
+            this.UserPreferenceWidth_GB.Controls.Add(this.SmallWidth_RB);
+            this.UserPreferenceWidth_GB.Controls.Add(this.LargeWidth_RB);
+            this.UserPreferenceWidth_GB.Controls.Add(this.MediumWidth_RB);
+            this.UserPreferenceWidth_GB.Location = new System.Drawing.Point(256, 297);
+            this.UserPreferenceWidth_GB.Name = "UserPreferenceWidth_GB";
+            this.UserPreferenceWidth_GB.Size = new System.Drawing.Size(249, 83);
+            this.UserPreferenceWidth_GB.TabIndex = 12;
+            this.UserPreferenceWidth_GB.TabStop = false;
             // 
             // SmallWidth_RB
             // 
@@ -453,6 +461,17 @@
             0,
             0,
             0});
+            // 
+            // HideAPN_CB
+            // 
+            this.HideAPN_CB.AutoSize = true;
+            this.HideAPN_CB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideAPN_CB.Location = new System.Drawing.Point(17, 386);
+            this.HideAPN_CB.Name = "HideAPN_CB";
+            this.HideAPN_CB.Size = new System.Drawing.Size(116, 32);
+            this.HideAPN_CB.TabIndex = 14;
+            this.HideAPN_CB.Text = "Hide APN";
+            this.HideAPN_CB.UseVisualStyleBackColor = true;
             // 
             // UserPreferenceWidth_CB
             // 
@@ -533,6 +552,40 @@
             this.PfDEnable_RB.TabIndex = 10;
             this.PfDEnable_RB.Text = "Enable";
             this.PfDEnable_RB.UseVisualStyleBackColor = true;
+            // 
+            // HideAPN_GB
+            // 
+            this.HideAPN_GB.Controls.Add(this.HideAPNYes_RB);
+            this.HideAPN_GB.Controls.Add(this.HideAPNNo_RB);
+            this.HideAPN_GB.Location = new System.Drawing.Point(256, 377);
+            this.HideAPN_GB.Name = "HideAPN_GB";
+            this.HideAPN_GB.Size = new System.Drawing.Size(200, 45);
+            this.HideAPN_GB.TabIndex = 11;
+            this.HideAPN_GB.TabStop = false;
+            // 
+            // HideAPNYes_RB
+            // 
+            this.HideAPNYes_RB.AutoSize = true;
+            this.HideAPNYes_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideAPNYes_RB.Location = new System.Drawing.Point(9, 8);
+            this.HideAPNYes_RB.Name = "HideAPNYes_RB";
+            this.HideAPNYes_RB.Size = new System.Drawing.Size(57, 32);
+            this.HideAPNYes_RB.TabIndex = 10;
+            this.HideAPNYes_RB.Text = "Yes";
+            this.HideAPNYes_RB.UseVisualStyleBackColor = true;
+            // 
+            // HideAPNNo_RB
+            // 
+            this.HideAPNNo_RB.AutoSize = true;
+            this.HideAPNNo_RB.Checked = true;
+            this.HideAPNNo_RB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideAPNNo_RB.Location = new System.Drawing.Point(129, 9);
+            this.HideAPNNo_RB.Name = "HideAPNNo_RB";
+            this.HideAPNNo_RB.Size = new System.Drawing.Size(57, 32);
+            this.HideAPNNo_RB.TabIndex = 10;
+            this.HideAPNNo_RB.TabStop = true;
+            this.HideAPNNo_RB.Text = "No";
+            this.HideAPNNo_RB.UseVisualStyleBackColor = true;
             // 
             // Neverlock_GB
             // 
@@ -688,7 +741,6 @@
             this.KeysToAdd_TB.Name = "KeysToAdd_TB";
             this.KeysToAdd_TB.Size = new System.Drawing.Size(144, 21);
             this.KeysToAdd_TB.TabIndex = 11;
-            this.KeysToAdd_TB.Visible = false;
             // 
             // KeysToDelete_TB
             // 
@@ -1089,6 +1141,16 @@
             this.Info_Panel.TabIndex = 14;
             this.Info_Panel.Visible = false;
             // 
+            // ADX_PB
+            // 
+            this.ADX_PB.Image = ((System.Drawing.Image)(resources.GetObject("ADX_PB.Image")));
+            this.ADX_PB.InitialImage = ((System.Drawing.Image)(resources.GetObject("ADX_PB.InitialImage")));
+            this.ADX_PB.Location = new System.Drawing.Point(633, 1);
+            this.ADX_PB.Name = "ADX_PB";
+            this.ADX_PB.Size = new System.Drawing.Size(128, 128);
+            this.ADX_PB.TabIndex = 19;
+            this.ADX_PB.TabStop = false;
+            // 
             // License_LLB
             // 
             this.License_LLB.ActiveLinkColor = System.Drawing.Color.Silver;
@@ -1204,15 +1266,17 @@
             this.CreatedBy_LB.TabIndex = 16;
             this.CreatedBy_LB.Text = "Created by: ";
             // 
-            // ADX_PB
+            // EnableCustCert_CB
             // 
-            this.ADX_PB.Image = ((System.Drawing.Image)(resources.GetObject("ADX_PB.Image")));
-            this.ADX_PB.InitialImage = ((System.Drawing.Image)(resources.GetObject("ADX_PB.InitialImage")));
-            this.ADX_PB.Location = new System.Drawing.Point(633, 1);
-            this.ADX_PB.Name = "ADX_PB";
-            this.ADX_PB.Size = new System.Drawing.Size(128, 128);
-            this.ADX_PB.TabIndex = 19;
-            this.ADX_PB.TabStop = false;
+            this.EnableCustCert_CB.AutoSize = true;
+            this.EnableCustCert_CB.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnableCustCert_CB.Location = new System.Drawing.Point(530, -6);
+            this.EnableCustCert_CB.Name = "EnableCustCert_CB";
+            this.EnableCustCert_CB.Size = new System.Drawing.Size(248, 32);
+            this.EnableCustCert_CB.TabIndex = 8;
+            this.EnableCustCert_CB.Text = "Enable custom certificate";
+            this.EnableCustCert_CB.UseVisualStyleBackColor = true;
+            this.EnableCustCert_CB.CheckedChanged += new System.EventHandler(this.EnableCustCert_CB_CheckedChanged);
             // 
             // Main
             // 
@@ -1220,14 +1284,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.Info_Panel);
-            this.Controls.Add(this.Settings_Panel);
-            this.Controls.Add(this.CustRegHacks_Panel);
             this.Controls.Add(this.KeysToDelete_TB);
             this.Controls.Add(this.KeysToAdd_TB);
             this.Controls.Add(this.EndingString_TB);
             this.Controls.Add(this.WPFlightsInit_TB);
-            this.Controls.Add(this.RegistryHacks_Panel);
             this.Controls.Add(this.SelectedLabel_LB);
             this.Controls.Add(this.Info_LB);
             this.Controls.Add(this.Settings_LB);
@@ -1237,26 +1297,33 @@
             this.Controls.Add(this.SrvProxy_LB);
             this.Controls.Add(this.Proxy_Btn);
             this.Controls.Add(this.Welcome_LB);
+            this.Controls.Add(this.CustRegHacks_Panel);
+            this.Controls.Add(this.EnableCustCert_CB);
+            this.Controls.Add(this.RegistryHacks_Panel);
             this.Controls.Add(this.InfoProxy_Panel);
+            this.Controls.Add(this.Info_Panel);
+            this.Controls.Add(this.Settings_Panel);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main Menu";
+            this.Text = "  ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.InfoProxy_Panel.ResumeLayout(false);
             this.InfoProxy_Panel.PerformLayout();
             this.RegistryHacks_Panel.ResumeLayout(false);
             this.RegistryHacks_Panel.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.UserPreferenceWidth_GB.ResumeLayout(false);
+            this.UserPreferenceWidth_GB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MICUV_Nup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MSUV_Nup)).EndInit();
             this.PfD_GB.ResumeLayout(false);
             this.PfD_GB.PerformLayout();
+            this.HideAPN_GB.ResumeLayout(false);
+            this.HideAPN_GB.PerformLayout();
             this.Neverlock_GB.ResumeLayout(false);
             this.Neverlock_GB.PerformLayout();
             this.Aboutmoz_GB.ResumeLayout(false);
@@ -1343,7 +1410,7 @@
         private System.Windows.Forms.RadioButton VariableStringType_RB;
         private System.Windows.Forms.RadioButton HardwareResourceListType_RB;
         private System.Windows.Forms.RadioButton ResourceRequirementType_RB;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox UserPreferenceWidth_GB;
         private System.Windows.Forms.RadioButton SmallWidth_RB;
         private System.Windows.Forms.RadioButton LargeWidth_RB;
         private System.Windows.Forms.RadioButton MediumWidth_RB;
@@ -1365,6 +1432,11 @@
         private System.Windows.Forms.LinkLabel XDA_LLB;
         private System.Windows.Forms.LinkLabel Website_LLB;
         private System.Windows.Forms.PictureBox ADX_PB;
+        private System.Windows.Forms.CheckBox HideAPN_CB;
+        private System.Windows.Forms.GroupBox HideAPN_GB;
+        private System.Windows.Forms.RadioButton HideAPNYes_RB;
+        private System.Windows.Forms.RadioButton HideAPNNo_RB;
+        private System.Windows.Forms.CheckBox EnableCustCert_CB;
     }
 }
 
