@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Fiddler;
 using System.Threading;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ProxyRegistryEditor
 {
@@ -21,6 +22,7 @@ namespace ProxyRegistryEditor
         {
             InitializeComponent();
         }
+        
         private void Main_Load(object sender, EventArgs e)
         {
             this.Text = "Main Menu | " + Version + " | Port: " + Port + " | Server Proxy: OFF";
@@ -33,6 +35,24 @@ namespace ProxyRegistryEditor
             Version_LB.Text += Version;
         }
 
+        string ToHex(int value)
+        {
+            const int decimalconstant = 8;
+            int lengthofvalue = 0;
+            int differentvalue = 0;
+            string whatthehell = "";
+            string hexvalue = value.ToString("X");
+            lengthofvalue = hexvalue.Length;
+            differentvalue = decimalconstant - lengthofvalue;
+            int x = 0;
+            while ( x < differentvalue)
+            {
+                whatthehell += "0"; 
+                x++;
+            }
+            return String.Format("0x"+ whatthehell + "{0:X}", value);
+        }
+        bool CustCertificate = false;
         bool isProxyOpened = false;
         int Port = 6767;
         int Prog = 0;
@@ -41,7 +61,7 @@ namespace ProxyRegistryEditor
         string KeysToAdd;
         string KeysToDelete;
         string EndingString;
-        string Version = "Beta 0.7";
+        string Version = "Beta 0.76";
 
         private void Proxy_Btn_Click(object sender, EventArgs e)
         {
@@ -117,6 +137,8 @@ namespace ProxyRegistryEditor
 
                  
             };
+            //string path = "C:\\Users\\ADeltaX\\Documents\\Visual Studio 2013\\Projects\\ProxyRegistryEditor\\ProxyRegistryEditor\\bin\\Debug\\Certificate\\wpflights.trafficmanager.net.cer";
+            //Fiddler.FiddlerApplication.oDefaultClientCertificate = new X509Certificate(path);
 
             Fiddler.FiddlerApplication.BeforeRequest += delegate(Fiddler.Session oS)
                 
@@ -125,24 +147,28 @@ namespace ProxyRegistryEditor
                 if (oS.fullUrl.StartsWith("https://wpflights.trafficmanager.net/RestUpdateProvisioningService.svc/UpdateChoices?"))
                 {
                     oS.utilCreateResponseAndBypassServer();
+                    
                     oS.oResponse.headers.SetStatus(200, "Ok");
+
+                    //oS.oResponse["https-Client-Certificate"] = path;
+                    oS.utilDecodeResponse(true);
+                    FiddlerApplication.Log.LogFormat("Injecting certificate");
                     oS.oResponse["Content-Type"] = "application/xml; charset=utf-8";
                     oS.oResponse["Cache-Control"] = "private, max-age=0";
                     StartString = WPFlightsInit_TB.Text;
                     EndingString = EndingString_TB.Text;
                     KeysToAdd = KeysToAdd_TB.Text;
                     KeysToDelete = KeysToDelete_TB.Text;
-
+                    
                     WPFlight = StartString + "<KeysToAdd>" + KeysToAdd + "</KeysToAdd>" + "<KeysToDelete>" + KeysToDelete + "</KeysToDelete>" + EndingString;
                     oS.utilSetResponseBody(WPFlight);
                     FiddlerApplication.Log.LogFormat("Sending custom Flighting Response");
-                   // MessageBox.Show(WPFlight);
                 }
 
 
             };
 
-            Fiddler.CONFIG.IgnoreServerCertErrors = true;
+            Fiddler.CONFIG.IgnoreServerCertErrors = false;
             FiddlerApplication.Prefs.SetBoolPref("fiddler.network.streaming.abortifclientaborts", true);
             FiddlerCoreStartupFlags oFCSF = FiddlerCoreStartupFlags.DecryptSSL | FiddlerCoreStartupFlags.AllowRemoteClients | FiddlerCoreStartupFlags.ChainToUpstreamGateway | FiddlerCoreStartupFlags.OptimizeThreadPool;
             try
@@ -345,6 +371,11 @@ namespace ProxyRegistryEditor
             else { MTPFolder_TB.Enabled = false; }
         }
 
+        private void EnableCustCert_CB_CheckedChanged(object sender, EventArgs e)
+        {
+            CustCertificate = true;
+        }
+
         private void ApplyHacks_Btn_Click(object sender, EventArgs e)
         {
             KeysToAdd_TB.Clear();
@@ -357,11 +388,11 @@ namespace ProxyRegistryEditor
             {
                 if (PfDEnable_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += RegistryStringCreator("System\\Platform\\DeviceTargetingInfo", "DevOSPreviewEnable", "1", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("System\\Platform\\DeviceTargetingInfo", "DevOSPreviewEnable", "0x00000001", 4);
                 }
                 else
                 {
-                    KeysToAdd_TB.Text += RegistryStringCreator("System\\Platform\\DeviceTargetingInfo", "DevOSPreviewEnable", "0", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("System\\Platform\\DeviceTargetingInfo", "DevOSPreviewEnable", "0x00000000", 4);
                 }
             }
             if (Aboutmoz_CB.Checked)
@@ -375,75 +406,121 @@ namespace ProxyRegistryEditor
                     KeysToDelete_TB.Text += RegistryStringCreator("Software\\Microsoft\\Internet Explorer\\Abouturls", "moz", "res://mshtml.dll/about.moz", 1);
                 }
             }
+            if (HideAPN_CB.Checked)
+            {
+                if (HideAPNYes_RB.Checked)
+                {
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Cellular\\MVSettings\\IMSISpecific\\Default\\CellUX", "HideMMSAPN", "0x00000001", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Cellular\\MVSettings\\IMSISpecific\\Default\\CellUX", "HideAPN", "0x00000001", 4);
+                }
+                else
+                {
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Cellular\\MVSettings\\IMSISpecific\\Default\\CellUX", "HideMMSAPN", "0x00000000", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Cellular\\MVSettings\\IMSISpecific\\Default\\CellUX", "HideAPN", "0x00000000", 4);
+                }
+            }
+
             if (Neverlock_CB.Checked)
             {
                 if (NeverlockEnable_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Lock", "DisableNever", "1", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Lock", "DisableNever", "0x00000001", 4);
                 }
                 else
                 {
-                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Lock", "DisableNever", "0", 4);          
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Lock", "DisableNever", "0x00000000", 4);
                 }
             }
+
             if (MaxSystemUIVolume_LB.Checked)
             {
-                KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Volume", "MaxSystemUIVolume", Convert.ToString(MICUV_Nup.Value), 4);  
+                KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Volume", "MaxSystemUIVolume", ToHex(Convert.ToInt32(MSUV_Nup.Value)), 4);  
             }
             if (MaxInCallUIVolume_CB.Checked)
             {
-                KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Volume", "MaxInCallUIVolume", Convert.ToString(MICUV_Nup.Value), 4);  
+                KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Settings\\Volume", "MaxInCallUIVolume", ToHex(Convert.ToInt32(MICUV_Nup.Value)), 4);  
             }
             if (UserPreferenceWidth_CB.Checked)
             {
                 if (SmallWidth_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "59", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "0x0000003B", 4); //59
                 }
                 else if (MediumWidth_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "64", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "0x00000040", 4); //64
                 }
                 else if (LargeWidth_RB.Checked)
                 {
-                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "75", 4);
+                    KeysToAdd_TB.Text += RegistryStringCreator("Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme", "UserPreferenceWidth", "0x0000004B", 4); //75
                 }
             }
         }
 
         private void AddKey_Btn_Click(object sender, EventArgs e)
         {
-           
 
+            string ToValueString = "";
+            ToValueString = RegistryKeyValue_TB.Text;
             if (RegistryKeyPath_TB.Text == "" | RegistryKeyValue_TB.Text == "" | RegistryKeyName_TB.Text == "")
             {
                 MessageBox.Show("Please fill all text box");
             }
             else
             {
+                if (IntegerType_RB.Checked)
+                {
+
+                    if (isNumeric(ToValueString))
+                    {
+                        ToValueString = ToHex(Convert.ToInt32(RegistryKeyValue_TB.Text));
+                    }
+                    if (isOnlyHex(ToValueString) == false)
+                    {
+                        MessageBox.Show("The entered value is not valid");
+                        return;
+                    }
+                }
                 if (KeysToAddCustHacks_RTB.Text != "")
                 {
                     KeysToAddCustHacks_RTB.Text += Environment.NewLine;
                 }
-                KeysToAddCustHacks_RTB.Text += RegistryStringCreator(RegistryKeyPath_TB.Text, RegistryKeyName_TB.Text, RegistryKeyValue_TB.Text, ValueTypeSet());
+                KeysToAddCustHacks_RTB.Text += RegistryStringCreator(RegistryKeyPath_TB.Text, RegistryKeyName_TB.Text, ToValueString, ValueTypeSet());
+                RegistryKeyValue_TB.Text = ToValueString;
             }
         }
 
         private void RemoveKey_Btn_Click(object sender, EventArgs e)
         {
-
+            string ToValueString = "";
+            ToValueString = RegistryKeyValue_TB.Text;
             if (RegistryKeyPath_TB.Text == "" | RegistryKeyName_TB.Text == "")
             {
                 MessageBox.Show("Please fill all text box");
             }
             else
             {
+                
+
                 if (KeysToDeleteCustHacks_RTB.Text != "")
                 {
                     KeysToDeleteCustHacks_RTB.Text += Environment.NewLine;
                 }
-                KeysToDeleteCustHacks_RTB.Text += RegistryStringCreator(RegistryKeyPath_TB.Text, RegistryKeyName_TB.Text, RegistryKeyValue_TB.Text, ValueTypeSet());
+                
+                KeysToDeleteCustHacks_RTB.Text += RegistryStringCreator(RegistryKeyPath_TB.Text, RegistryKeyName_TB.Text, ToValueString, ValueTypeSet());
+                RegistryKeyValue_TB.Text = ToValueString;
             }
+        }
+        public bool isNumeric(string parsingString)
+        {
+            int num;
+            bool BoolNumeric = int.TryParse(parsingString, out num);
+            return BoolNumeric;
+        }
+
+        public bool isOnlyHex(string test)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(test, @"\A\b(0[xX])?[0-9a-fA-F]+\b\Z");
         }
 
         public int ValueTypeSet()
